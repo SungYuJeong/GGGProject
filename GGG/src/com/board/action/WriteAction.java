@@ -25,6 +25,8 @@ public class WriteAction implements CommandAction {
     	String subject = request.getParameter("subject");
     	String content = request.getParameter("content");
     	String email = request.getParameter("email");
+    	int price = Integer.parseInt(request.getParameter("price"));
+    	String img = request.getParameter("img");
     	
     	String id = null;
     	Class.forName("com.mysql.cj.jdbc.Driver");
@@ -49,11 +51,14 @@ public class WriteAction implements CommandAction {
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
       		pstmt = conn.prepareStatement(      				
-    				"insert into board values(NULL,?,?,?,?,now(),0)");
+    				"insert into board values(NULL,?,?,?,?,now(),0,?,?,0,?)");
     				pstmt.setString(1, id);
     				pstmt.setString(2, subject);
     				pstmt.setString(3, content);
     				pstmt.setString(4, email);
+    				pstmt.setString(5, img);
+    				pstmt.setString(6, "test2");
+    				pstmt.setInt(7, price);
     				//쿼리 실행
     				pstmt.executeUpdate();
     				

@@ -54,6 +54,14 @@ function writeCheck()
 				<th style="text-align:left"><textarea name="content" rows="10" placeholder="내용을 입력하세요" form="inform"></textarea></th>
 			</tr>	
 			<tr>
+				<th>가격</th>
+				<th style="text-align:Left"><input type="text" name="price"></th>
+			</tr>
+			<tr>
+				<th>이미지</th>
+				<th style="text-align:Left"><input type="file" name="img"></th>
+			</tr>
+			<tr>
 				<th></th>
 				<th style="text-align:right">		
 					<input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck();">

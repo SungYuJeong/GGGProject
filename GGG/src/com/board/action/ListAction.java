@@ -71,6 +71,10 @@ public class ListAction implements CommandAction {
     			article.setId(rs.getString("id"));
     			article.setBoarddate(rs.getString("boarddate"));
     			article.setScore(rs.getString("score"));
+    			article.setImg(rs.getString("img"));
+    			article.setSellOpt(rs.getString("sellOpt"));
+    			article.setBorrowDay(rs.getInt("borrowDay"));
+    			article.setPrice(rs.getInt("price"));
     			articleList.add(article);
     		}
     		request.setAttribute("articleList",articleList);

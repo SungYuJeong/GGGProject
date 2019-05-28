@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=euc-kr"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
     
  <html>
 <head>
@@ -99,11 +100,20 @@
 														<c:when test="${status.count%3==1}">
 															<article class="grid_4 alpha">
 		                                                        <div class="indent-left">
-		                                                            <figure class="frame2 p2"><img src="images/page4-img1.jpg" alt="" /></figure>
+		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150" /></figure>
 		                                                            <p class="color-4 prev-indent-bot">${article.subject}</p>
-		                                                            <p>${article.boarddate}</p>
+		                                                            <p>
+		                                                            <c:choose>
+																	        <c:when test="${fn:length(article.content) gt 36}">
+																	        <c:out value="${fn:substring(article.content, 0, 35)}">
+																	        </c:out><span>...</span></c:when>
+																	        <c:otherwise>
+																	        <c:out value="${article.content}">
+																	        </c:out></c:otherwise>
+																	</c:choose>
+																	</p>
 		                                                            <div class="wrapper">
-		                                                            	<span class="price fleft">$45.99</span>
+		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
 		                                                                <a class="button fright" href="#">Read More</a>
 		                                                            </div>
 		                                                        </div>
@@ -112,11 +122,20 @@
 														<c:when test="${status.count%3==2}">
 															<article class="grid_4">
 		                                                        <div class="indent3">
-		                                                            <figure class="frame2 p2"><img src="images/page4-img1.jpg" alt="" /></figure>
+		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150"  /></figure>
 		                                                            <p class="color-4 prev-indent-bot">${article.subject}</p>
-		                                                            <p>${article.boarddate}</p>
+		                                                            <p>
+		                                                            <c:choose>
+																	        <c:when test="${fn:length(article.content) gt 36}">
+																	        <c:out value="${fn:substring(article.content, 0, 35)}">
+																	        </c:out><span>...</span></c:when>
+																	        <c:otherwise>
+																	        <c:out value="${article.content}">
+																	        </c:out></c:otherwise>
+																	</c:choose>
+																	</p>
 		                                                            <div class="wrapper">
-		                                                            	<span class="price fleft">$45.99</span>
+		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
 		                                                                <a class="button fright" href="#">Read More</a>
 		                                                            </div>
 		                                                        </div>
@@ -125,11 +144,20 @@
 														<c:when test="${status.count%3==0}">
 															<article class="grid_4 omega">
 		                                                        <div class="indent-right">
-		                                                            <figure class="frame2 p2"><img src="images/page4-img1.jpg" alt="" /></figure>
+		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150"  /></figure>
 		                                                            <p class="color-4 prev-indent-bot">${article.subject}</p>
-		                                                            <p>${article.boarddate}</p>
+		                                                            <p>
+		                                                            <c:choose>
+																	        <c:when test="${fn:length(article.content) gt 36}">
+																	        <c:out value="${fn:substring(article.content, 0, 35)}">
+																	        </c:out><span>...</span></c:when>
+																	        <c:otherwise>
+																	        <c:out value="${article.content}">
+																	        </c:out></c:otherwise>
+																	</c:choose>
+																	</p>
 		                                                            <div class="wrapper">
-		                                                            	<span class="price fleft">$45.99</span>
+		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
 		                                                                <a class="button fright" href="#">Read More</a>
 		                                                            </div>
 		                                                        </div>

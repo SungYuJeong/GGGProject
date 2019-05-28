@@ -40,6 +40,30 @@ public class board {
 	//АЁАн
 	public int price;
 	
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	public String getSellOpt() {
+		return sellOpt;
+	}
+	public void setSellOpt(String sellOpt) {
+		this.sellOpt = sellOpt;
+	}
+	public int getBorrowDay() {
+		return borrowDay;
+	}
+	public void setBorrowDay(int borrowDay) {
+		this.borrowDay = borrowDay;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 	public String getOpt() {
 		return opt;
 	}
