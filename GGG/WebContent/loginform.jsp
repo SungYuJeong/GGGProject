@@ -43,7 +43,7 @@ function writeCheck()
 </head>
 <body>
 
-<form action ="/board/join.do" method="post">
+<form action ="/board/join.do" method="post" name="writeform">
 	<table class="table table-striped table-bordered table-hover" style="text-align:center">
 	<tr>
 		<th>ID</th>
@@ -64,7 +64,7 @@ function writeCheck()
 	<tr>
 		<th></th>
 		<th style="text-align:right">
-			<input type=submit class="btn btn-success" value="등록" Onclick="javascript:writeCheck();">
+			<input type=button class="btn btn-success" value="등록" Onclick="javascript:writeCheck();">
 			<input type=button class="btn btn-secondary" value="취소" OnClick="window.location='login.jsp'">
 		</th>
 	</tr>

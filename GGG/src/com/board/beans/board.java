@@ -28,6 +28,18 @@ public class board {
 	//검색내용
 	public String condition;
 	
+	//이미지
+	public String img;
+	
+	//판매, 대여
+	public String sellOpt;
+	
+	//대여 기간
+	public int borrowDay;
+	
+	//가격
+	public int price;
+	
 	public String getOpt() {
 		return opt;
 	}
