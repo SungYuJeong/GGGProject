@@ -48,7 +48,7 @@
                                 <li><a href="index.jsp">About Us</a></li>
                                 <li><a href="services.jsp">Services</a></li>
                                 <li><a class="active" href="catalogue.jsp">Catalogue</a></li>
-                                <li><a href="pricing.jsp">Pricing</a></li>
+                                <li><a href="list.do">Pricing</a></li>
                                 <li><a href="contacts.jsp">Contacts</a></li>
                             </ul>
                         </nav>

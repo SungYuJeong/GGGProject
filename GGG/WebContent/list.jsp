@@ -36,7 +36,7 @@
                                 <li><a href="index.jsp">About Us</a></li>
                                 <li><a href="services.jsp">Services</a></li>
                                 <li><a href="catalogue.jsp">Catalogue</a></li>
-                                <li><a class="active" href="pricing.jsp">Pricing</a></li>
+                                <li><a class="active" href="list.jsp">Pricing</a></li>
                                 <li><a href="contacts.jsp">Contacts</a></li>
                             </ul>
                         </nav>
@@ -114,7 +114,7 @@
 																	</p>
 		                                                            <div class="wrapper">
 		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
-		                                                                <a class="button fright" href="#">Read More</a>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">Read More</a>
 		                                                            </div>
 		                                                        </div>
 		                                                    </article>
@@ -136,7 +136,7 @@
 																	</p>
 		                                                            <div class="wrapper">
 		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
-		                                                                <a class="button fright" href="#">Read More</a>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">Read More</a>
 		                                                            </div>
 		                                                        </div>
 		                                                    </article>
@@ -158,7 +158,7 @@
 																	</p>
 		                                                            <div class="wrapper">
 		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
-		                                                                <a class="button fright" href="#">Read More</a>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">Read More</a>
 		                                                            </div>
 		                                                        </div>
 		                                                    </article>
