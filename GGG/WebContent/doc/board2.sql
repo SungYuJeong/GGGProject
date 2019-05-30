@@ -10,4 +10,6 @@ create table board(
   sellOpt varchar(20), -- 판대 또는 대여
   borrowDay int(20), -- 대여 기간
   price int(20) -- 가격
+  lat varchar(50) -- 위도
+  lng varchar(50) -- 경도
   );

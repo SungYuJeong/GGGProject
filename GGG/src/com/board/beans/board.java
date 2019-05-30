@@ -30,16 +30,22 @@ public class board {
 	public String condition;
 	
 	//이미지
-	public String img;
+	private String img;
 	
 	//판매, 대여
-	public String sellOpt;
+	private String sellOpt;
 	
 	//대여 기간
-	public int borrowDay;
+	private int borrowDay;
 	
 	//가격
-	public int price;
+	private int price;
+	
+	//위도
+	private String lat;
+	
+	//경도
+	private String lng;
 	
 	public String getImg() {
 		return img;
@@ -118,6 +124,18 @@ public class board {
 	}
 	public void setScore(String score) {
 		this.score = score;
+	}
+	public String getLat() {
+		return lat;
+	}
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+	public String getLng() {
+		return lng;
+	}
+	public void setLng(String lng) {
+		this.lng = lng;
 	}
 	
 }
