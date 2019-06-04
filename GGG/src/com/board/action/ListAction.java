@@ -24,11 +24,14 @@ public class ListAction implements CommandAction {
     	Class.forName("com.mysql.cj.jdbc.Driver");    	    
     	Connection conn = null;
     	Statement stmt = null;
-    	ResultSet rs = null;    	
+    	ResultSet rs = null;   
+    	ResultSet rs2 = null;
     	
     	//�˻��ɼǰ� �˻����� �޾� ������ ����
     	String opt = request.getParameter("opt");
     	String condition = request.getParameter("condition");
+    	if(condition != null) condition = new String(condition.getBytes("8859_1"), "EUC-KR");
+
     	
     	try {
     		HttpSession session = request.getSession();
@@ -44,9 +47,11 @@ public class ListAction implements CommandAction {
     		String dbUser = "root";
     		String dbPass = "root";
     		String query = null; 
+    		String query2 = null;
     		
     		if(opt == null){    			
     			query = "select * from board order by num";
+    			query2 = "SELECT * FROM board WHERE score = (SELECT max(score) FROM board)";
     		}else if(opt.equals("0")){    			
     			query = "select * from board where subject like '%"+condition+"%' order by num";        		
     		}else if(opt.equals("1")){    			
@@ -57,10 +62,10 @@ public class ListAction implements CommandAction {
     		conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
     		
     		stmt = conn.createStatement();    		
-    		rs = stmt.executeQuery(query);    		
+    		rs = stmt.executeQuery(query);
+    		
     		
     		ArrayList<board> articleList = new ArrayList<board>();    		
-    		
     		while(rs.next()){
     			board article = new board();
     			article.setNum(rs.getInt("num"));
@@ -77,15 +82,43 @@ public class ListAction implements CommandAction {
     		}
     		request.setAttribute("articleList",articleList);
     		
-    	} catch(SQLException ex){
+    		board maxScore = null;
+    		if(query2!=null) {
+    			rs.close();
+        		stmt.close();
+    			stmt = conn.createStatement();
+    			rs2 = stmt.executeQuery(query2);
+    			
+    			 while(rs2.next()) {
+        		  maxScore = new board();
+      			  maxScore.setNum(rs2.getInt("num"));
+      			  maxScore.setSubject(rs2.getString("subject"));
+      			  maxScore.setContent(rs2.getString("content"));
+      			  maxScore.setId(rs2.getString("id"));
+      			  maxScore.setBoarddate(rs2.getString("boarddate"));
+      			  maxScore.setScore(rs2.getString("score"));
+      			  maxScore.setImg(rs2.getString("img"));
+      			  maxScore.setSellOpt(rs2.getString("sellOpt"));
+      			  maxScore.setBorrowDay(rs2.getInt("borrowDay"));
+      			  maxScore.setPrice(rs2.getInt("price"));
+    			 }
+    		  
+    		}
+    		request.setAttribute("maxScore",maxScore);
+
+			 
     		
+    		
+    	} catch(SQLException ex){
+    		ex.printStackTrace();
     	} finally{
     		if(rs != null) try{rs.close();} catch(SQLException ex){}
     		if(stmt != null) try{stmt.close();} catch(SQLException ex) {}
     		
     		if(conn != null) try{conn.close();} catch(SQLException ex) {}
     	}
- 
+    	
+
         return "list.jsp";
  
     }

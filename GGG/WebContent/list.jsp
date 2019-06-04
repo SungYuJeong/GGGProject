@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
   <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">   
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<!--[if lt IE 7]>
@@ -56,11 +57,19 @@
                         </h1>
                     </div>
                     <div class="grid_3">
-                    	<form id="search-form" method="post" enctype="multipart/form-data">
+                    	<form id="search-form">
+                   			
                             <fieldset>	
                                 <div class="search-field">
-                                    <input name="search" type="text" />
-                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
+	                                
+                                    <select class="search-op" name="opt" >
+										<option value="0">제목</option>
+										<option value="1">내용</option>
+										<option value="2">작성자</option>
+									</select>
+                                    <input type="text" name="condition" />
+                                    
+                                    <a class="search-button" href="list.do"><span>search</span></a>	
                                 </div>						
                             </fieldset>
                         </form>
@@ -71,9 +80,6 @@
         </div>    	
     </header>
     
-	<div style="text-align:right">
-		사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
-	</div>
 	 <section id="content">
         <div class="bg-top">
         	<div class="bg-top-2">
@@ -89,7 +95,7 @@
                                                 	<h3 class="p0">Latest Income</h3>
                                                 </div>
                                                 
-                                                   	<c:forEach items="${articleList}" var="article" varStatus="status">
+                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
                                                    	<c:if test="${status.count==1}">
                                                   	 	<div class="wrapper p4">
                                                    	</c:if>
@@ -102,7 +108,7 @@
 															<article class="grid_4 alpha">
 		                                                        <div class="indent-left">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150" /></figure>
-		                                                            <p class="color-4 prev-indent-bot">${article.subject}</p>
+		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
 		                                                            <p>
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
@@ -124,7 +130,7 @@
 															<article class="grid_4">
 		                                                        <div class="indent3">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150"  /></figure>
-		                                                            <p class="color-4 prev-indent-bot">${article.subject}</p>
+		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
 		                                                            <p>
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
@@ -146,7 +152,7 @@
 															<article class="grid_4 omega">
 		                                                        <div class="indent-right">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150"  /></figure>
-		                                                            <p class="color-4 prev-indent-bot">${article.subject}</p>
+		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
 		                                                            <p>
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
@@ -177,33 +183,100 @@
                 </div>
             </div>	
         </div>
+         <div class="bg-bot">
+        	<div class="main">
+            	<div class="container_12">
+                	<div class="wrapper">
+                    	<article class="grid_4">
+                        	<h3 class="p2" >Hot Furniture</h3>
+                            <div class="wrapper">
+                            	<figure class="img-indent frame2"><img src="${maxScore.img}" alt="" width="120" height="150"  /></figure>
+                                <p class="prev-indent-bot color-4 font-sbj">${maxScore.subject}</p>
+                                <p class="prev-indent-bot">
+                                 <c:choose>
+								        <c:when test="${fn:length(maxScore.content) gt 36}">
+								        <c:out value="${fn:substring(maxScore.content, 0, 35)}">
+								        </c:out><span>...</span></c:when>
+								        <c:otherwise>
+								        <c:out value="${maxScore.content}">
+								        </c:out></c:otherwise>
+								</c:choose>
+                                </p>
+                                <a class="button" href="content.do?num=${maxScore.num}">View More</a>
+                            </div>
+                        </article>
+                        <article class="grid_4">
+                        	<h3 class="prev-indent-bot2">Our Pricing</h3>
+                            <div class="wrapper">
+                            	<div class="grid_4 alpha">
+                                	<div class="indent-right2">
+                                		<ul class="price-list">
+                                			<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
+	                                			 <c:choose>
+												        <c:when test="${status.count==5}">
+												  			<li class="last"><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
+												    	</c:when>
+												        <c:otherwise>
+													        <li><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
+														</c:otherwise>
+												</c:choose>
+                                			</c:forEach>
+                             			</ul>                
+                                    </div>
+                                </div>    
+                               </div>
+                         </article>
+                          <article class="grid_4">
+                        	
+                            <div class="wrapper">
+                            <div style="text-align:right"><a class="button" OnClick="window.location='writeform.jsp'">판매하기</a></div>
+                            	<div class="grid_4 omega">
+                                	<div class="indent-right2">
+                                		<ul class="price-list">
+                                			<c:forEach items="${articleList}" var="article" varStatus="status" begin="6" end="11">
+	                                			<c:choose>
+												        <c:when test="${status.count==11}">
+												  			<li class="last"><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
+												    	</c:when>
+												        <c:otherwise>
+													        <li><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
+														</c:otherwise>
+												</c:choose>
+                                			</c:forEach>
+                             			</ul>                
+                                    </div>
+                                </div>    
+                             </div>
+                         </article>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-	<table class="table table-striped table-bordered table-hover">
-				
-			<c:forEach items="${articleList}" var="article">
-		<tr>
-			<th style="text-align:center">${article.num}</th>
-			<th style="text-align:left"><a href="content.do?num=${article.num}">
-			${article.subject}</a></th>
-			<th style="text-align:center">${article.id}</th>
-			<th style="text-align:center">${article.boarddate}</th>
-			<th style="text-align:center">${article.score}</th>			
-		</tr>
-		</c:forEach>
-		</table>				
-			<div style="text-align:right">
-				<input type=button class="btn btn-success" value="작성하기" OnClick="window.location='writeform.jsp'">
-			</div>
-			<div id="searchForm" style="text-align:center">
-				<form>
-					<select name="opt">
-						<option value="0">제목</option>
-						<option value="1">내용</option>
-						<option value="2">작성자</option>
-					</select>
-					<input type="text" size="20" name="condition"/>
-					<input class="btn btn-secondary" type="submit" value="검색"/>
-				</form>
-			</div>
+    <!--==============================footer=================================-->
+    <footer>
+        <div class="main">
+        	<div class="container_12">
+            	<div class="wrapper">
+                	<div class="grid_4">
+                    	<div>GGG &copy; 2019 <a class="link color-3" href="#">GGG Project</a></div>
+                        <div><a rel="nofollow" target="_blank" href="https://github.com/jinhoon227/GGGProject">GGG OpenSource</a> using TemplateMonster.com</div>
+                        <!-- {%FOOTER_LINK} -->
+                    </div>
+                    <div class="grid_4">
+                    	<span class="phone-numb"><span>+1(800)</span> 123-1234</span>
+                    </div>
+                    <div class="grid_4">
+                    	<ul class="list-services">
+                        	<li><a href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-2" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-3" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-4" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

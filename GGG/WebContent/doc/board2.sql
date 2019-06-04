@@ -9,7 +9,8 @@ create table board(
   img varchar(200), -- 이미지 경로
   sellOpt varchar(20), -- 판대 또는 대여
   borrowDay int(20), -- 대여 기간
-  price int(20) -- 가격
-  lat varchar(50) -- 위도
-  lng varchar(50) -- 경도
+  price int(20), -- 가격
+  lat varchar(50), -- 위도
+  lng varchar(50), -- 경도
+  typ varchar(50) -- 가구 카테고리
   );

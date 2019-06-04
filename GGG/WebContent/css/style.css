@@ -63,6 +63,7 @@ p {margin-bottom:18px}
 .img-indent-r {float:right; margin:0 0px 0px 40px}	
 .prev-indent-bot {margin-bottom:10px}	
 .prev-indent-bot2 {margin-bottom:5px}	
+.font-sbj {font-size:20px}
 .buttons a:hover {cursor:pointer}
 .menu li a, .list-1 li a, .list-2 li a, .link, .button, .logo {text-decoration:none}
 /*********************************header*************************************/
@@ -73,7 +74,7 @@ h1 {padding:15px 0 0 0;position:relative;font-weight:normal;text-transform:upper
 	h1 span {display:inline-block;	font-size:28px;	line-height:1.2em;	color:#949494;	letter-spacing:-1px;	padding:29px 0 0 4px}
 .logo {display:inline-block;font-size:60px;line-height:1.2em;;color:#262626;cursor:pointer;letter-spacing:-3px}
 	.logo strong {color:#ff9601; font-weight:normal}
-/***** menu *****/
+/***** menu *****/url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
 .menu {padding:0;width:100%}
 .menu li {float:left;position:relative}
 	.menu li:first-child {background:url(../images/menu-a-tail.gif) 0 -71px no-repeat}
@@ -82,8 +83,21 @@ h1 {padding:15px 0 0 0;position:relative;font-weight:normal;text-transform:upper
 .menu li a.active {color:#fff;background-position:left top;background-repeat:repeat-x;background-color:#000}
 /***** search form *****/
 #search-form {padding:35px 0px 0 37px}
-#search-form fieldset {position:relative; width:100%; display:block; overflow:hidden}
-#search-form .search-field {width:181px;height:29px;background:url(../images/search-input-tail.gif) 0 0 repeat-x;border:1px solid #d7d7d7}
+#search-form fieldset {position:relative; width:100%; display:visible; }
+#search-form .search-op {height:29px; position:absolute; display:block; right:200px; width: 100px;
+  padding: 0 .2em;
+  font-family: inherit;
+  background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #c0c0c0;
+  border-radius: 0px;}
+#search-form .search-op::-ms-expand {
+  /* for IE 11 */
+  display: none;
+}
+#search-form .search-field {width:181px;height:29px; background:url(../images/search-input-tail.gif) 0 0 repeat-x;border:1px solid #d7d7d7}
 #search-form input {width:137px;font-size:13px;line-height:1.23em;padding:6px 10px 7px;font-family:Arial, Helvetica, sans-serif;background:none;border:none;margin:0;outline:none}
 #search-form .search-button {display:block;width:17px;height:16px;text-indent:-5000px;background:url(../images/search-icon.gif) 0 0 no-repeat;position:absolute;right:8px;top:7px}
 /*********************************content*************************************/
