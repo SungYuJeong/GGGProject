@@ -9,7 +9,26 @@
     <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
     <script src="js/jquery.galleriffic.js" type="text/javascript"></script>
     <script src="js/jquery.opacityrollover.js" type="text/javascript"></script>      
+	<style>
+		.button{
+				width:200px;
+				
+				background-color: #8BC4BD;
+				border: none;
+				color:#fff;
+				padding: 15px 0;
+				text-align: center;
+				text-decoration: none;
+				font-size: 15px;
+				margin: 4px;
+				cursor: pointer;
+			}
+		.button:hover {
+				color:black;
+				background-color: #CEF6F5;
 
+			}
+	</style>
 </head>
 <body id="page1">
 	<!--==============================header=================================-->
@@ -20,11 +39,11 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="index.html">About Us</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="catalogue.html">Catalogue</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="index.jsp">About Us</a></li>
+                                <li><a class="active" href="services.jsp">Services</a></li>
+                                <li><a href="catalogue.jsp">Catalogue</a></li>
+                                <li><a href="list.do">Pricing</a></li>
+                                <li><a href="contacts.jsp">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -66,8 +85,9 @@
                         <div class="main">
                             <div class="gallery p3">
                             	<div class="wrapper indent-bot">
-                            		<img src="but.png" id="getLocation" type="button" width="200px" height="60px"></button>
-                
+                            		
+                					<input class = "button" type="button" value= "Find my location" id="getLocation" />
+                					
                                      <div id="gallery" class="content">
                           		
                                      <script>
@@ -185,7 +205,7 @@
                                              		  });
                                              		  myUniversity.setMap(map);
                                              		  
-                                    			 alert("Your current position is: latitude(" + pos.lat + "), longitude(" + pos.lng + ")"); 
+                                    			 alert("My Location is latitude(" + pos.lat + "), longitude(" + pos.lng + ")"); 
                                     			 } 
                                     		 
                                     		 function errorCallback(error) { 
@@ -239,7 +259,7 @@
                                     <div class="wrapper">
                                         <span class="title img-indent3">HELLO!</span>
                                         <div class="extra-wrap indent-top2">
-                                        	<strong>Interior Design</strong> is one of <a target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com team. This website template is opti mized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid. It has several pages: <a class="color-3" href="index.html">About</a>, <a class="color-3" href="services.html">Services</a>, <a class="color-3" href="catalogue.html">Catalogue</a>, <a class="color-3" href="pricing.html">Pricing</a>, <a class="color-3" href="contacts.html">Contact Us</a> (note that contact us form â doesnât work).
+                                        	<strong>Interior Design</strong> is one of <a target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com team. This website template is opti mized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid. It has several pages: <a class="color-3" href="index.html">About</a>, <a class="color-3" href="services.html">Services</a>, <a class="color-3" href="catalogue.html">Catalogue</a>, <a class="color-3" href="pricing.html">Pricing</a>, <a class="color-3" href="contacts.html">Contact Us</a> (note that contact us form Ã¢ÂÂ doesnÃ¢ÂÂt work).
                                         </div>
                                     </div>
                                 </div>
@@ -300,7 +320,7 @@
                             </div>
                         </article>
                         <article class="grid_4">
-                        	<h3 class="prev-indent-bot">Whatâs New?</h3>
+                        	<h3 class="prev-indent-bot">WhatÃ¢ÂÂs New?</h3>
                             <time class="tdate-1" datetime="2011-08-15"><a class="link" href="#">15.08.2011</a></time>
                             <p class="prev-indent-bot">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
                             <time class="tdate-1" datetime="2011-08-11"><a class="link" href="#">11.08.2011</a></time>
