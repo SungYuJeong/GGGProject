@@ -28,6 +28,11 @@
 				background-color: #CEF6F5;
 
 			}
+			.content {
+			text-align: center;
+			font-size: 15px;
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body id="page1">
@@ -137,7 +142,7 @@
                                              	  
                                              	  google.maps.event.addListener(marker1,'click',function() {
                                    					var infowindow = new google.maps.InfoWindow({
-                                   					content:'<div>'+'A'+'<br/><img src="gagu1.PNG" width="100px" height="100px">'
+                                   					content:'<div>'+'A'+'<br/><img src="images/thumb-1.jpg" width="100px" height="100px">'
                                    					});
                                    				  infowindow.open(map,marker1);
                                    					});
@@ -150,7 +155,7 @@
                                                	  
                                                	 google.maps.event.addListener(marker2,'click',function() {
                                     					var infowindow = new google.maps.InfoWindow({
-                                    					content:'<div>'+'B'+'<br/><img src="gagu2.PNG" width="100px" height="100px">'
+                                    					content:'<div>'+'B'+'<br/><img src="images/thumb-2.jpg" width="100px" height="100px">'
                                     					});
                                     				  infowindow.open(map,marker2);
                                     					});
@@ -163,7 +168,7 @@
                                              	  
                                              		 google.maps.event.addListener(marker3,'click',function() {
                                          					var infowindow = new google.maps.InfoWindow({
-                                         					content:'<div>'+'C'+'<br/><img src="gagu3.PNG" width="100px" height="100px">'
+                                         					content:'<div>'+'C'+'<br/><img src="images/thumb-3.jpg" width="100px" height="100px">'
                                          					});
                                          				  infowindow.open(map,marker3);
                                          					});
@@ -176,7 +181,7 @@
                                                	  
                                               	 google.maps.event.addListener(marker4,'click',function() {
                                      					var infowindow = new google.maps.InfoWindow({
-                                     					content:'<div>'+'D'+'<br/><img src="gagu4.PNG" width="100px" height="100px">'
+                                     					content:'<div>'+'D'+'<br/><img src="images/thumb-4.jpg" width="100px" height="100px">'
                                      					});
                                      				  infowindow.open(map,marker4);
                                      					});
