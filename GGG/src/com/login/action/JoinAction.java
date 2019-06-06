@@ -29,6 +29,8 @@ public class JoinAction implements CommandAction {
     	String name = request.getParameter("name");
     	String email = request.getParameter("email");
     	
+    	System.out.println(id);
+    	
     	//mysql 데이터베이스에 접속하는 클래스 드라이버 선언
     	Class.forName("com.mysql.cj.jdbc.Driver");
     	

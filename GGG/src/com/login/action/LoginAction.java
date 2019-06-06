@@ -23,8 +23,9 @@ public class LoginAction implements CommandAction{
 		
 		//占쌉력뱄옙占쏙옙 id占쏙옙 pw占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙
 		String id = request.getParameter("id");
+		System.out.println(id);
     	String password = request.getParameter("password");    	
-    	    	
+    	System.out.println(password);    	
     	Class.forName("com.mysql.cj.jdbc.Driver");
     	HttpSession session = request.getSession();
     	Connection conn = null;    	
@@ -63,6 +64,7 @@ public class LoginAction implements CommandAction{
 				return "loginerror2.jsp";
 			}
     	} catch(SQLException ex){
+    		ex.printStackTrace();
 
     	}finally{
     		//占쌘울옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
