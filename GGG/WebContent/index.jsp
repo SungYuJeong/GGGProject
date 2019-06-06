@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=euc-kr"
+    pageEncoding="UTF-8"%>
 <head>
     <title></title>
     <meta charset="utf-8">
@@ -46,16 +47,24 @@
             	<div class="container_12">
                 	<div class="grid_9">
                     	<h1>
-                            <a class="logo" href="index.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
+                            <a class="logo" href="index.jsp">G<strong>G</strong>G</a>
+                            <span>roup</span>
                         </h1>
                     </div>
                     <div class="grid_3">
-                    	<form id="search-form" method="post" enctype="multipart/form-data">
+                    	<form id="search-form">
+                   			
                             <fieldset>	
                                 <div class="search-field">
-                                    <input name="search" type="text" />
-                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
+	                                
+                                    <select class="search-op" name="opt" >
+										<option value="0">제목</option>
+										<option value="1">내용</option>
+										<option value="2">작성자</option>
+									</select>
+                                    <input type="text" name="condition" />
+                                    
+                                    <a class="search-button" href="list.do"><span>search</span></a>	
                                 </div>						
                             </fieldset>
                         </form>
@@ -109,7 +118,7 @@
                                     <div class="wrapper">
                                         <span class="title img-indent3">HELLO!</span>
                                         <div class="extra-wrap indent-top2">
-                                        	<strong>Interior Design</strong> is one of <a target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com team. This website template is opti mized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid. It has several pages: <a class="color-3" href="index.html">About</a>, <a class="color-3" href="services.html">Services</a>, <a class="color-3" href="catalogue.html">Catalogue</a>, <a class="color-3" href="pricing.html">Pricing</a>, <a class="color-3" href="contacts.html">Contact Us</a> (note that contact us form – doesn’t work).
+                                        	<strong>Interior Design</strong> is one of <a target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com team. This website template is opti mized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid. It has several pages: <a class="color-3" href="index.html">About</a>, <a class="color-3" href="services.html">Services</a>, <a class="color-3" href="catalogue.html">Catalogue</a>, <a class="color-3" href="pricing.html">Pricing</a>, <a class="color-3" href="contacts.html">Contact Us</a> (note that contact us form â doesnât work).
                                         </div>
                                     </div>
                                 </div>
@@ -170,7 +179,7 @@
                             </div>
                         </article>
                         <article class="grid_4">
-                        	<h3 class="prev-indent-bot">What’s New?</h3>
+                        	<h3 class="prev-indent-bot">Whatâs New?</h3>
                             <time class="tdate-1" datetime="2011-08-15"><a class="link" href="#">15.08.2011</a></time>
                             <p class="prev-indent-bot">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
                             <time class="tdate-1" datetime="2011-08-11"><a class="link" href="#">11.08.2011</a></time>
@@ -182,14 +191,14 @@
         </div>
     </section>
     
-	<!--==============================footer=================================-->
+	 <!--==============================footer=================================-->
     <footer>
         <div class="main">
         	<div class="container_12">
             	<div class="wrapper">
                 	<div class="grid_4">
-                    	<div>Interior Design &copy; 2011 <a class="link color-3" href="#">Privacy Policy</a></div>
-                        <div><a rel="nofollow" target="_blank" href="http://www.templatemonster.com/">Website Template</a> by TemplateMonster.com | <a rel="nofollow" target="_blank" href="http://www.html5xcss3.com/">html5xcss3.com</a></div>
+                    	<div>GGG &copy; 2019 <a class="link color-3" href="#">GGG Project</a></div>
+                        <div><a rel="nofollow" target="_blank" href="https://github.com/jinhoon227/GGGProject">GGG OpenSource</a> using TemplateMonster.com</div>
                         <!-- {%FOOTER_LINK} -->
                     </div>
                     <div class="grid_4">
@@ -197,16 +206,17 @@
                     </div>
                     <div class="grid_4">
                     	<ul class="list-services">
-                        	<li><a href="#"></a></li>
-                            <li><a class="item-2" href="#"></a></li>
-                            <li><a class="item-3" href="#"></a></li>
-                            <li><a class="item-4" href="#"></a></li>
+                        	<li><a href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-2" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-3" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-4" href="https://github.com/jinhoon227/GGGProject"></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
     <script type="text/javascript">
 			$(window).load(function() {
 			// We only want these styles applied when javascript is enabled
@@ -260,5 +270,7 @@
 			});
 		});
 	</script>
+
+  <script src="./js/allui.js"></script> 
 </body>
 </html>

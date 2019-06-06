@@ -228,7 +228,7 @@
                           <article class="grid_4">
                         	
                             <div class="wrapper">
-                            <div style="text-align:right"><a class="button" OnClick="window.location='writeform.jsp'">판매하기</a></div>
+                            <div style="text-align:right;"><a class="button" OnClick="window.location='writeform.jsp'">판매하기</a></div>
                             	<div class="grid_4 omega">
                                 	<div class="indent-right2">
                                 		<ul class="price-list">
