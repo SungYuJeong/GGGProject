@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
   <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">   
   
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<!--[if lt IE 7]>
         <div style=' clear: both; text-align:center; position: relative;'>
             <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
@@ -91,10 +92,19 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left p2">
-                                                	<h3 class="p0">Latest Income</h3>
+                                                	<h3 class="p0">Search Result</h3>
                                                 </div>
-                                                
-                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
+                                             	   <c:if test="${fn:length(articleList)==0}">
+                                                  	 	<div class="wrapper p4">
+	                                                  	 	
+	                                                        <div class="indent-left t2">
+	                                                            <h3>검색된 결과가 없습니다!</h3>
+	                                                        </div>
+		                                                    
+                                                  	 		
+                                                  	 	</div>
+                                                   	</c:if>
+                                                   	<c:forEach items="${articleList}" var="article" varStatus="status">
                                                    	<c:if test="${status.count==1}">
                                                   	 	<div class="wrapper p4">
                                                    	</c:if>
@@ -170,6 +180,9 @@
 		                                                    </article>
 														</c:when>
 													</c:choose>
+													<c:if test="${status.count%6==0}">
+                                                  	 	<div class="wrapper p4"></div>
+                                                   	</c:if>
 													</c:forEach>
                                                 	</div>
                                             </div>
@@ -181,75 +194,6 @@
                     </div>
                 </div>
             </div>	
-        </div>
-         <div class="bg-bot">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="wrapper">
-                    	<article class="grid_4">
-                        	<h3 class="p2" >Hot Furniture</h3>
-                            <div class="wrapper">
-                            	<figure class="img-indent frame2"><img src="${maxScore.img}" alt="" width="120" height="150"  /></figure>
-                                <p class="prev-indent-bot color-4 font-sbj">${maxScore.subject}</p>
-                                <p class="prev-indent-bot">
-                                 <c:choose>
-								        <c:when test="${fn:length(maxScore.content) gt 36}">
-								        <c:out value="${fn:substring(maxScore.content, 0, 35)}">
-								        </c:out><span>...</span></c:when>
-								        <c:otherwise>
-								        <c:out value="${maxScore.content}">
-								        </c:out></c:otherwise>
-								</c:choose>
-                                </p>
-                                <a class="button" href="content.do?num=${maxScore.num}">View More</a>
-                            </div>
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot2">Our Pricing</h3>
-                            <div class="wrapper">
-                            	<div class="grid_4 alpha">
-                                	<div class="indent-right2">
-                                		<ul class="price-list">
-                                			<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
-	                                			 <c:choose>
-												        <c:when test="${status.count==5}">
-												  			<li class="last"><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-												    	</c:when>
-												        <c:otherwise>
-													        <li><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-														</c:otherwise>
-												</c:choose>
-                                			</c:forEach>
-                             			</ul>                
-                                    </div>
-                                </div>    
-                               </div>
-                         </article>
-                          <article class="grid_4">
-                        	
-                            <div class="wrapper">
-                            <div style="text-align:right"><a class="button" OnClick="window.location='writeform.jsp'">판매하기</a></div>
-                            	<div class="grid_4 omega">
-                                	<div class="indent-right2">
-                                		<ul class="price-list">
-                                			<c:forEach items="${articleList}" var="article" varStatus="status" begin="6" end="11">
-	                                			<c:choose>
-												        <c:when test="${status.count==11}">
-												  			<li class="last"><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-												    	</c:when>
-												        <c:otherwise>
-													        <li><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-														</c:otherwise>
-												</c:choose>
-                                			</c:forEach>
-                             			</ul>                
-                                    </div>
-                                </div>    
-                             </div>
-                         </article>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!--==============================footer=================================-->
@@ -277,9 +221,5 @@
             </div>
         </div>
     </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
-  <script src="./js/allui.js"></script> 
 </body>
 </html>

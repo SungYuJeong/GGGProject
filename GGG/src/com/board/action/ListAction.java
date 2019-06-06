@@ -105,6 +105,7 @@ public class ListAction implements CommandAction {
     		  
     		}
     		request.setAttribute("maxScore",maxScore);
+    	
 
 			 
     		
@@ -118,8 +119,10 @@ public class ListAction implements CommandAction {
     		if(conn != null) try{conn.close();} catch(SQLException ex) {}
     	}
     	
-
-        return "list.jsp";
- 
+    	if(opt==null) {
+    		return "list.jsp";
+    	}else {
+    		return "searchResult.jsp";
+    	}
     }
 }
