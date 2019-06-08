@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +12,7 @@
     <script src="js/jcarousellite_1.0.1.js" type="text/javascript"></script>
     <script src="js/jquery.galleriffic.js" type="text/javascript"></script>
     <script src="js/jquery.opacityrollover.js" type="text/javascript"></script> 
+    <script src="login.jsp" type="text/javascript"></script> 
     <script type="text/javascript">
 		$(document).ready(function() { 
 			$(".jCarouselLite").jCarouselLite({
@@ -45,11 +47,11 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a href="index.html">About Us</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a class="active" href="catalogue.html">Catalogue</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="index.jsp">About Us</a></li>
+                                <li><a href="SearchUser.jsp">Services</a></li>
+                                <li><a class="active" href="catalogue.jsp">Catalogue</a></li>
+                                <li><a href="list.do">Pricing</a></li>
+                                <li><a href="contacts.jsp">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -60,11 +62,16 @@
         <div class="row-2">
         	<div class="main">
             	<div class="container_12">
-                	<div class="grid_9">
+                	<div style="display:inline" class="grid_9">
                     	<h1>
-                            <a class="logo" href="index.html">Int<strong>e</strong>rior</a>
+                            <a  class="logo" href="index.html">Int<strong>e</strong>rior</a>
                             <span>Design</span>
+                            
                         </h1>
+                    </div>
+                    <div style="position:absolute; top:115px; right:370px;">
+                    <a href="login.jsp" style="text-decoration:none" onMouseOver="this.style.color='black'"  onMouseOut="this.style.color=''" ><p style="font-size:15pt">Login</p></a>
+                    
                     </div>
                     <div class="grid_3">
                     	<form id="search-form" method="post" enctype="multipart/form-data">

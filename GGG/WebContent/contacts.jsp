@@ -26,11 +26,11 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a href="index.html">About Us</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="catalogue.html">Catalogue</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a class="active" href="contacts.html">Contacts</a></li>
+                                <li><a href="index.jsp">About Us</a></li>
+                                <li><a href="SearchUser.jsp">Services</a></li>
+                                <li><a href="catalogue.jsp">Catalogue</a></li>
+                                <li><a href="list.do">Pricing</a></li>
+                                <li><a class="active" href="contacts.jsp">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
