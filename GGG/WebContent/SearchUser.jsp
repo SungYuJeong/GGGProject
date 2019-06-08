@@ -33,6 +33,10 @@
 			font-size: 15px;
 			font-weight: bold;
 		}
+		#thumbs {
+	
+		}
+		
 	</style>
 </head>
 <body id="page1">
@@ -45,7 +49,7 @@
                     	<nav>
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
-                                <li><a class="active" href="services.jsp">Services</a></li>
+                                <li><a class="active" href="services.jsp">Search User</a></li>
                                 <li><a href="catalogue.jsp">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
                                 <li><a href="contacts.jsp">Contacts</a></li>
@@ -61,8 +65,8 @@
             	<div class="container_12">
                 	<div class="grid_9">
                     	<h1>
-                            <a class="logo" href="index.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
+                            <a class="logo" href="index.jsp">G<strong>G</strong>G</a>
+                            <span>roup</span>
                         </h1>
                     </div>
                     <div class="grid_3">
@@ -80,7 +84,7 @@
             </div>
         </div>    	
     </header><div class="ic">More Website Templates  @ TemplateMonster.com - August22nd 2011!</div>
-    
+   
 <!-- content -->
     <section id="content">
         <div class="bg-top">
@@ -96,8 +100,9 @@
                                      <div id="gallery" class="content">
                           		
                                      <script>
+                                     var Searching =0;
                                       function myMap() {  
-                                    	  
+                                    	
                                     	  var mark1 = new google.maps.LatLng(36.6308239, 127.4552541);
                                     	  var mark2 = new google.maps.LatLng(36.6322724, 127.4548716);
                                     	  var mark3 = new google.maps.LatLng(36.632832, 127.4557401);
@@ -107,7 +112,7 @@
                                     	  var mapCanvas = document.getElementById("gallery");
                                     	  var myCenter = new google.maps.LatLng(36.6322724, 127.4548716);
                                     	  var mapOptions = {
-                                    	  	center: {lat: 36.6322724, lng: 127.4548716}, 
+                                    	  	center: {lat: 37.5867139, lng: 126.9747627}, 
                                     	    zoom: 15
                                     	  };
                                     	  var map = new google.maps.Map(mapCanvas, mapOptions);
@@ -116,9 +121,9 @@
                                     	 
                                       	  
                                     	 
-                                    		 
+                                    	  
                                     		 function successCallback(position) { 
-                                    			 
+                                    			
                                     			 let pos = { 
                                     					 
                                     					 lat: position.coords.latitude, 
@@ -126,7 +131,7 @@
                                     			}; 
                                     			
                                     			 map.setCenter(pos);
-                                    			
+                                    			 var Searching =1;
                                     			 var myPosition = new google.maps.Marker({
                                                		position: {lat : position.coords.latitude, lng: position.coords.longitude},
                                                	    animation:google.maps.Animation.BOUNCE,
@@ -209,15 +214,21 @@
                                              		    fillOpacity: 0.1
                                              		  });
                                              		  myUniversity.setMap(map);
-                                             		  
-                                    			 alert("My Location is latitude(" + pos.lat + "), longitude(" + pos.lng + ")"); 
+                                             	
+                                             		 setTimeout( function(){
+                                             			alert("Your location has been confirmed.");
+                                             		
+                                           			}, 800);
+                                             		
+                                             		
                                     			 } 
                                     		 
                                     		 function errorCallback(error) { 
                                     			 alert("Error: " + error.message);
+                                    			 
                                     			 } 
                                     		 document.getElementById("getLocation").onclick = function () { 
-                                    			
+                                    		
                                     			 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
                                     			 };
 
@@ -235,133 +246,48 @@
                                         </div>
                                     </div>
                                     <div id="thumbs" class="navigation" >
-                                     	<img src="trens.PNG" width="300px" height="350px"/>
-                                    	<br/>        
                                     	
-                                       <!--   <ul class="thumbs noscript">
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img1.jpg" title=""> <img src="images/thumb-1.jpg" alt="" /><span></span> </a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img2.jpg" title=""> <img src="images/thumb-2.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img3.jpg" title=""> <img src="images/thumb-3.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img4.jpg" title=""> <img src="images/thumb-4.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img5.jpg" title=""> <img src="images/thumb-5.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img6.jpg" title=""> <img src="images/thumb-6.jpg" alt="" /> <span></span></a>
-                                            </li>           
-                                        </ul> -->
+                                    	<img id ="Searching" src="Searching.gif" width="200px" height="200px" style="display: none "/>
+                                    	<img id ="Searching2" src="checking.png" width="320px" height="260px" />
+                                    	<a id ="server" style="display: none ">GPS Server running ...<br/><br/>If the icon stops, the GPS is disconnected.<br/> Press the f5 button.</a>
+                                    	<script>
+                                    
+	                                    	$(document).ready(function () {
+	                                            $("#getLocation").click(function () {
+	                                                $("#Searching").show("fast");
+	                                            });
+	                                            $("#getLocation").click(function () {
+	                                                $("#server").show("fast");
+	                                            });
+	                                            $("#getLocation").click(function () {
+	                                                $("#Searching2").hide("fast");
+	                                            });
+	                                        });
+                                    
+                                    	</script>
+                                    	
+                                    	<br/>        
                                     </div>
                                 </div>
                                 <div class="inner">
-                                    <div class="wrapper">
-                                        <span class="title img-indent3">HELLO!</span>
-                                        <div class="extra-wrap indent-top2">
-                                        	<strong>Interior Design</strong> is one of <a target="_blank" href="http://blog.templatemonster.com/free-website-templates/ ">free website templates</a> created by TemplateMonster.com team. This website template is opti mized for 1024X768 screen resolution. It is also XHTML &amp; CSS valid. It has several pages: <a class="color-3" href="index.html">About</a>, <a class="color-3" href="services.html">Services</a>, <a class="color-3" href="catalogue.html">Catalogue</a>, <a class="color-3" href="pricing.html">Pricing</a>, <a class="color-3" href="contacts.html">Contact Us</a> (note that contact us form Ã¢ÂÂ doesnÃ¢ÂÂt work).
-                                        </div>
+                                    <div class="wrapper" >
+                                        <img src="introduce.png" width="850px" height="150px"/>
+                                        
                                     </div>
+                                    
                                 </div>
                             </div>
-                            <div class="container_12">
-                            	<div class="wrapper">
-                                	<article class="grid_12">
-                                    	<h3 class="color-1">Our Services List</h3>
-                                        <div class="wrapper">
-                                        	<article class="grid_6 alpha">
-                                                <figure class="img-indent frame"><img src="images/page1-img1.jpg" alt="" /></figure>
-                                                <div class="extra-wrap">
-                                                    <div class="indent-top">
-                                                        <ul class="list-1">
-                                                             <li><a href="#">Interior Decorating Services</a></li>
-                                                             <li class="last"><a href="#">Complete Color <br>Analysis</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="clear"></div>
-                                            </article>
-                                            <article class="grid_6 omega">
-                                                <figure class="img-indent frame"><img src="images/page1-img2.jpg" alt="" /></figure>
-                                                <div class="extra-wrap">
-                                                    <div class="indent-top">
-                                                        <ul class="list-1">
-                                                             <li><a href="#">Design Services <br>for Home Construction</a></li>
-                                                             <li class="last"><a href="#">Interior Design Remodeling</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="clear"></div>
-                                            </article>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
+                    
                         </div>
                     </div>
                 </div>
             </div>	
         </div>
-        <div class="bg-bot">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="wrapper">
-                    	<article class="grid_4">
-                        	<h3 class="prev-indent-bot">About Us</h3>
-                            <p class="prev-indent-bot">This <a target="_blank" href="http://blog.templatemonster.com/2011/08/22/free-website-template-clean-style-interior/ ">Interior Design Template</a> goes with two pack ages: with PSD source files and without them.</p>
-                            PSD source files are available for free for the registered members of Templates.com. The basic package (without PSD source) is available for anyone without registration.
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot">Testimonials</h3>
-                            <div class="quote">
-                            	<p class="prev-indent-bot">At vero eos et accusamus et iusto odio tium voluptatum deleniti atque corrupti quos<br> dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-                                <h5>James Reese</h5>
-                                Managing Director
-                            </div>
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot">WhatÃ¢ÂÂs New?</h3>
-                            <time class="tdate-1" datetime="2011-08-15"><a class="link" href="#">15.08.2011</a></time>
-                            <p class="prev-indent-bot">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                            <time class="tdate-1" datetime="2011-08-11"><a class="link" href="#">11.08.2011</a></time>
-                            Totam rem aperiam, eaque ipsa quae ab illo inven tore veritatis et quasi architecto.
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
+     
     </section>
     
 	<!--==============================footer=================================-->
-    <footer>
-        <div class="main">
-        	<div class="container_12">
-            	<div class="wrapper">
-                	<div class="grid_4">
-                    	<div>Interior Design &copy; 2011 <a class="link color-3" href="#">Privacy Policy</a></div>
-                        <div><a rel="nofollow" target="_blank" href="http://www.templatemonster.com/">Website Template</a> by TemplateMonster.com | <a rel="nofollow" target="_blank" href="http://www.html5xcss3.com/">html5xcss3.com</a></div>
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
-                    <div class="grid_4">
-                    	<span class="phone-numb"><span>+1(800)</span> 123-1234</span>
-                    </div>
-                    <div class="grid_4">
-                    	<ul class="list-services">
-                        	<li><a href="#"></a></li>
-                            <li><a class="item-2" href="#"></a></li>
-                            <li><a class="item-3" href="#"></a></li>
-                            <li><a class="item-4" href="#"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    
     <script type="text/javascript">
 			$(window).load(function() {
 			// We only want these styles applied when javascript is enabled
