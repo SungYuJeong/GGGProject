@@ -45,7 +45,7 @@ public class ContentAction implements CommandAction {
     		String jdbcDriver = "jdbc:mysql://localhost:3306/jspdb?serverTimezone=UTC";
     		
     			//	+
-    			//				"useUnicode=true&characterEncoding = euc-kr";
+    		    //				"useUnicode=true&characterEncoding = euc-kr";
     		String dbUser = "root";
     		String dbPass = "root";
     		
@@ -74,6 +74,7 @@ public class ContentAction implements CommandAction {
     		request.setAttribute("articleList",articleList);
     		
     		//��ȸ�� ������Ʈ
+    		
     		String query2 =  "UPDATE board SET score='" + score +    						
 					"' WHERE num=" + num;    		
     		stmt.executeUpdate(query2); 

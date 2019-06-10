@@ -49,7 +49,7 @@ public class WriteAction implements CommandAction {
 			conn = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
 			
       		pstmt = conn.prepareStatement(      				
-    				"insert into board values(NULL,?,?,?,?,now(),0,?,?,0,?)");
+    				"insert into board values(NULL,?,?,?,?,now(),0,?,?,0,?,'ss','dd')");
     				pstmt.setString(1, id);
     				pstmt.setString(2, subject);
     				pstmt.setString(3, content);
@@ -61,7 +61,7 @@ public class WriteAction implements CommandAction {
     				pstmt.executeUpdate();
     				
     	} catch(SQLException ex){
-			
+			ex.printStackTrace();
 		}finally{
     		if(pstmt != null) try{pstmt.close();} catch(SQLException ex){}
     		if(conn != null) try{conn.close();} catch(SQLException ex){}
