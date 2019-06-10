@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.board.beans.board;
 import com.board.controller.CommandAction;
  
-public class ListAction implements CommandAction {
+public class MypageAction implements CommandAction {
 	
     public String requestPro(HttpServletRequest request,
  
@@ -48,6 +48,7 @@ public class ListAction implements CommandAction {
     		String dbPass = "root";
     		String query = null; 
     		String query2 = null;
+    		
     		
     		if(opt == null){    			
     			query = "select * from board order by num";
@@ -121,7 +122,7 @@ public class ListAction implements CommandAction {
     	}
     	
     	if(opt==null) {
-    		return "list.jsp";
+    		return "Mypage.jsp";
     	}else {
     		return "searchResult.jsp";
     	}
