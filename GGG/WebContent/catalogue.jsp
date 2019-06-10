@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=euc-kr"
-    pageEncoding="UTF-8"%>
+<html lang="en">
 <head>
     <title></title>
     <meta charset="utf-8">
@@ -52,7 +51,7 @@
                                 <li><a href="SearchUser.jsp">Services</a></li>
                                 <li><a class="active" href="catalogue.jsp">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
-                                <li><a href="contacts.jsp">Contacts</a></li>
+                                <li><a href="Mypage.do">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -65,8 +64,8 @@
             	<div class="container_12">
                 	<div style="display:inline" class="grid_9">
                     	<h1>
-                            <a class="logo" href="index.jsp">G<strong>G</strong>G</a>
-                            <span>roup</span>
+                            <a  class="logo" href="index.html">Int<strong>e</strong>rior</a>
+                            <span>Design</span>
                             
                         </h1>
                     </div>
@@ -75,19 +74,11 @@
                     
                     </div>
                     <div class="grid_3">
-                    	<form id="search-form">
-                   			
+                    	<form id="search-form" method="post" enctype="multipart/form-data">
                             <fieldset>	
                                 <div class="search-field">
-	                                
-                                    <select class="search-op" name="opt" >
-										<option value="0">제목</option>
-										<option value="1">내용</option>
-										<option value="2">작성자</option>
-									</select>
-                                    <input type="text" name="condition" />
-                                    
-                                    <a class="search-button" href="list.do"><span>search</span></a>	
+                                    <input name="search" type="text" />
+                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
                                 </div>						
                             </fieldset>
                         </form>
@@ -203,14 +194,14 @@
         </div>
     </section>
     
-	 <!--==============================footer=================================-->
+	<!--==============================footer=================================-->
     <footer>
         <div class="main">
         	<div class="container_12">
             	<div class="wrapper">
                 	<div class="grid_4">
-                    	<div>GGG &copy; 2019 <a class="link color-3" href="#">GGG Project</a></div>
-                        <div><a rel="nofollow" target="_blank" href="https://github.com/jinhoon227/GGGProject">GGG OpenSource</a> using TemplateMonster.com</div>
+                    	<div>Interior Design &copy; 2011 <a class="link color-3" href="#">Privacy Policy</a></div>
+                        <div><a rel="nofollow" target="_blank" href="http://www.templatemonster.com/">Website Template</a> by TemplateMonster.com | <a rel="nofollow" target="_blank" href="http://www.html5xcss3.com/">html5xcss3.com</a></div>
                         <!-- {%FOOTER_LINK} -->
                     </div>
                     <div class="grid_4">
@@ -218,10 +209,10 @@
                     </div>
                     <div class="grid_4">
                     	<ul class="list-services">
-                        	<li><a href="https://github.com/jinhoon227/GGGProject"></a></li>
-                            <li><a class="item-2" href="https://github.com/jinhoon227/GGGProject"></a></li>
-                            <li><a class="item-3" href="https://github.com/jinhoon227/GGGProject"></a></li>
-                            <li><a class="item-4" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                        	<li><a href="#"></a></li>
+                            <li><a class="item-2" href="#"></a></li>
+                            <li><a class="item-3" href="#"></a></li>
+                            <li><a class="item-4" href="#"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -281,6 +272,5 @@
 			});
 		});
 	</script>
-	<script src="./js/allui.js"></script> 
 </body>
 </html>
