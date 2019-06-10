@@ -6,7 +6,7 @@
     
  <html>
 <head>
-<title>게시판</title>
+<title>마이페이지</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
@@ -23,6 +23,7 @@
    		<script type="text/javascript" src="js/html5.js"></script>
         <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 	<![endif]-->
+
 </head>
 
 <body id="page4">
@@ -37,8 +38,8 @@
                                 <li><a href="index.jsp">About Us</a></li>
                                 <li><a href="SearchUser.jsp">Services</a></li>
                                 <li><a href="catalogue.jsp">Catalogue</a></li>
-                                <li><a class="active" href="list.do">Pricing</a></li>
-                                <li><a href="Mypage.do">Contacts</a></li>
+                                <li><a href="list.do">Pricing</a></li>
+                                <li><a  class="active" href="Mypage.do">My page</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -91,10 +92,17 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left p2">
-                                                	<h3 class="p0">Latest Income</h3>
+                                                	<h3 class="p0">내 판매 정보</h3><br/>
+                                                	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
+                           								
                                                 </div>
+                                               
+	
+                                                	<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
+                                                	<c:if test="${id == article.id}">
+                                             		 <hr/>
                                                 
-                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
+                                                   	
                                                    	<c:if test="${status.count==1}">
                                                   	 	<div class="wrapper p4">
                                                    	</c:if>
@@ -102,6 +110,7 @@
                                                   	 	</div>
                                                    		<div class="wrapper">
                                                    	</c:if>
+                                                   <div style = "border #BDBDBD; width : 320px; height : 0px; margin: auto;">
                                                    	<c:choose>        
 														<c:when test="${status.count%3==1}">
 															<article class="grid_4 alpha">
@@ -120,7 +129,7 @@
 																	</p>
 		                                                            <div class="wrapper">
 		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
-		                                                                <a class="button fright" href="content.do?num=${article.num}">Read More</a>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">개시글 수정</a>
 		                                                            </div>
 		                                                        </div>
 		                                                    </article>
@@ -142,7 +151,7 @@
 																	</p>
 		                                                            <div class="wrapper">
 		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
-		                                                                <a class="button fright" href="content.do?num=${article.num}">Read More</a>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">개시글 수정</a>
 		                                                            </div>
 		                                                        </div>
 		                                                    </article>
@@ -164,12 +173,39 @@
 																	</p>
 		                                                            <div class="wrapper">
 		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
-		                                                                <a class="button fright" href="content.do?num=${article.num}">Read More</a>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">개시글 수정</a>
 		                                                            </div>
 		                                                        </div>
 		                                                    </article>
 														</c:when>
 													</c:choose>
+													</div>
+													<div >
+														<br/><br/>
+													  	<table class="table table-striped table-bordered table-hover" id = "type02" style="text-align:center">
+													
+														<tr>
+															<td>제목</td>
+															<td style="text-align:left">${article.subject}</td>			
+														</tr>
+													
+														<tr>
+															<td>작성일자</td>
+															<td style="text-align:left">${article.boarddate}</td>						
+														</tr>
+														<tr>
+															<td>조회수</td>
+															<td style="text-align:left">${article.score}</td>						
+														</tr>
+														
+														<tr>
+															<td>내용</td>
+															<td style="text-align:left">${article.content}</td>						
+														</tr>
+														
+												</table>
+												</div>
+													</c:if>
 													</c:forEach>
                                                 	</div>
                                             </div>
@@ -181,75 +217,6 @@
                     </div>
                 </div>
             </div>	
-        </div>
-         <div class="bg-bot">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="wrapper">
-                    	<article class="grid_4">
-                        	<h3 class="p2" >Hot Furniture</h3>
-                            <div class="wrapper">
-                            	<figure class="img-indent frame2"><img src="${maxScore.img}" alt="" width="120" height="150"  /></figure>
-                                <p class="prev-indent-bot color-4 font-sbj">${maxScore.subject}</p>
-                                <p class="prev-indent-bot">
-                                 <c:choose>
-								        <c:when test="${fn:length(maxScore.content) gt 36}">
-								        <c:out value="${fn:substring(maxScore.content, 0, 35)}">
-								        </c:out><span>...</span></c:when>
-								        <c:otherwise>
-								        <c:out value="${maxScore.content}">
-								        </c:out></c:otherwise>
-								</c:choose>
-                                </p>
-                                <a class="button" href="content.do?num=${maxScore.num}">View More</a>
-                            </div>
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot2">Our Pricing</h3>
-                            <div class="wrapper">
-                            	<div class="grid_4 alpha">
-                                	<div class="indent-right2">
-                                		<ul class="price-list">
-                                			<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
-	                                			 <c:choose>
-												        <c:when test="${status.count==5}">
-												  			<li class="last"><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-												    	</c:when>
-												        <c:otherwise>
-													        <li><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-														</c:otherwise>
-												</c:choose>
-                                			</c:forEach>
-                             			</ul>                
-                                    </div>
-                                </div>    
-                               </div>
-                         </article>
-                          <article class="grid_4">
-                        	
-                            <div class="wrapper">
-                            <div style="text-align:right"><a class="button" OnClick="window.location='writeform.jsp'">판매하기</a></div>
-                            	<div class="grid_4 omega">
-                                	<div class="indent-right2">
-                                		<ul class="price-list">
-                                			<c:forEach items="${articleList}" var="article" varStatus="status" begin="6" end="11">
-	                                			<c:choose>
-												        <c:when test="${status.count==11}">
-												  			<li class="last"><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-												    	</c:when>
-												        <c:otherwise>
-													        <li><span>&#8361;${article.price}</span><a href="content.do?num=${article.num}">${article.subject}</a><strong>&nbsp;</strong></li>
-														</c:otherwise>
-												</c:choose>
-                                			</c:forEach>
-                             			</ul>                
-                                    </div>
-                                </div>    
-                             </div>
-                         </article>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!--==============================footer=================================-->
@@ -263,7 +230,7 @@
                         <!-- {%FOOTER_LINK} -->
                     </div>
                     <div class="grid_4">
-                    	<span class="phone-numb"><span>+1(800)</span> 123-1234</span>
+                    	<span class="phone-numb"><span>Contect Our&nbsp; </span>GitPage</span>
                     </div>
                     <div class="grid_4">
                     	<ul class="list-services">

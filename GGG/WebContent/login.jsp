@@ -321,7 +321,7 @@ body .container .content .signup-cont {
         					        </form>
         					 </div>
            			</div>
-			    nb  
+			    
 		    </article>
 		    <div class="half bg"></div>
 </section>

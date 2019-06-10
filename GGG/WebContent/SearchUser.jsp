@@ -49,10 +49,10 @@
                     	<nav>
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
-                                <li><a class="active" href="services.jsp">Search User</a></li>
+                                <li><a class="active" href="SearchUser.jsp">Search User</a></li>
                                 <li><a href="catalogue.jsp">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
-                                <li><a href="contacts.jsp">Contacts</a></li>
+                                <li><a href="Mypage.do">Contacts</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -341,5 +341,29 @@
 			});
 		});
 	</script>
+	 <footer>
+        <div class="main">
+        	<div class="container_12">
+            	<div class="wrapper">
+                	<div class="grid_4">
+                    	<div>GGG &copy; 2019 <a class="link color-3" href="#">GGG Project</a></div>
+                        <div><a rel="nofollow" target="_blank" href="https://github.com/jinhoon227/GGGProject">GGG OpenSource</a> using TemplateMonster.com</div>
+                        <!-- {%FOOTER_LINK} -->
+                    </div>
+                    <div class="grid_4">
+                    	<span class="phone-numb"><span>Contect Our&nbsp; </span>GitPage</span>
+                    </div>
+                    <div class="grid_4">
+                    	<ul class="list-services">
+                        	<li><a href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-2" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-3" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-4" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

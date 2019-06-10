@@ -15,6 +15,7 @@
 	<div style="text-align:right">
 	사용자ID : ${id} <input type=button class="btn btn-info" value="로그아웃" OnClick="window.location='logout.do'">
 	</div>
+	
 	<c:forEach items="${articleList}" var="article">
 	<table class="table table-striped table-bordered table-hover" style="text-align:center">
 		<caption style="text-align:center">게시판 내용</caption>
