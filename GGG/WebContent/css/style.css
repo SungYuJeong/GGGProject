@@ -40,9 +40,10 @@ p {margin-bottom:18px}
 .color-3 {color:#262626}
 .color-4 {color:#ff9601}
 .frame {padding:10px;background:#fff;box-shadow: 3px 5px 8px rgba(0,0,0,0.70);-moz-box-shadow: 3px 5px 8px rgba(0,0,0,0.70);-webkit-box-shadow: 3px 5px 8px rgba(0,0,0,0.70)}
-.frame2 {padding:9px;background:#fff;border:1px solid #e5e5e5}
-.padd{padding-left : 200px}
+.frame2 {padding:9px;background:#fff;border:1px solid #e5e5e5;}
+.padd{padding-left : 200px;}
 .paddt{margin-top : 50px}
+.cnthei{height:40px;}
 /*********************************boxes**********************************/
 
 .margin-bot {margin-bottom:35px}
@@ -125,6 +126,45 @@ header {width:100%;position:relative;z-index:2}
 	margin-left: 20px;
 	margin-top: 0px;
 	margin-bottom:15px;
+}
+#pageForm{
+            text-align :center;
+            font-size: 20px;
+            color:black;
+            height:60px;
+            
+}
+.nowPage{
+	padding:10px;
+	width:60px;
+	border-radius:50px;
+	background-color:lightblue;
+	color:white;
+	display:inline;
+	margin-left:10px;
+	margin-right:10px;
+}
+.lastPage{
+	padding:10px;
+	border-radius:50px;
+	margin-left:10px;
+	margin-right:10px;
+	display:inline;
+	transition: all .3s ease;
+	
+}
+.lastPage a{
+	
+	text-decoration:none;
+}
+.lastPage:hover{
+	
+  
+  background:lightblue;
+  transform: scale(1.03);
+}
+.lastPage a:hover{
+	color:white;
 }
 .row-2 {width:100%;min-height:101px;background:url(../images/row2-tail.gif) left top repeat-x #fff; }
 h1 {padding:15px 0 0 0;position:relative;font-weight:normal;text-transform:uppercase;margin-left:-4px;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif}

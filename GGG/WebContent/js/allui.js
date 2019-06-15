@@ -20,7 +20,7 @@ $(window).scroll(function(){
 	var allhei = $('body').prop("scrollHeight");
     var height = $(document).scrollTop(); //실시간으로 스크롤의 높이를 측정
     
-    if(allhei < 1200){
+    if(allhei < 1300){
     	
     }else{
 	    

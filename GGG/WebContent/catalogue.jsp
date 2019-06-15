@@ -152,7 +152,7 @@
                                                   	 	</div>
                                                    	</c:if>                                                
                     
-                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
+                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" begin="${(spage-1)*6}" end="${(spage-1)*6+5}">
                                                    	<c:if test="${status.count==1}">
                                                   	 	<div class="wrapper p4 padd paddt">
                                                    	</c:if>
@@ -166,7 +166,7 @@
 		                                                        <div class="indent-left">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="170" height="150" /></figure>
 		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
-		                                                            <p>
+		                                                            <p class="cnthei">
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
 																	        <c:out value="${fn:substring(article.content, 0, 35)}">
@@ -188,7 +188,7 @@
 		                                                        <div class="indent3">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="170" height="150"  /></figure>
 		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
-		                                                            <p>
+		                                                            <p class="cnthei">
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
 																	        <c:out value="${fn:substring(article.content, 0, 35)}">
@@ -210,7 +210,7 @@
 		                                                        <div class="indent-right">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="170" height="150"  /></figure>
 		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
-		                                                            <p>
+		                                                            <p class="cnthei">
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
 																	        <c:out value="${fn:substring(article.content, 0, 35)}">
@@ -240,9 +240,31 @@
                             	
                                 <div class="inner-2">
                                     <div class="wrapper">
-                                        <span class="title t2 img-indent3">2011</span>
+                                        <span class="title t2 img-indent3" style="padding-right:80px; padding-left:40px;">${spage}</span>
                                         <div class="extra-wrap indent-top2">
-                                        	Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam volup tatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.
+                                        	   <br />
+                                        	   <div id="pageForm">
+											        <c:if test="${startPage != 1}">
+											            <a href='catalogue.do?page=${startPage-1}&category=${category}'>[이전 ]</a>
+											        </c:if>
+											        
+											        <c:forEach var="pageNum" begin="${startPage}" end="${endPage}">
+											            <c:if test="${pageNum == spage}">
+											                <div class="nowPage">${pageNum}</div>
+											            </c:if>
+											            <c:if test="${pageNum != spage}">
+											                <div class="lastPage">
+											                <a href='catalogue.do?page=${pageNum}&category=${category}'>${pageNum}</a>
+											                </div>
+											            </c:if>
+											        </c:forEach>
+											        
+											        <c:if test="${endPage != maxPage }">
+											            <a href='catalogue.do?page=${endPage+1 }&category=${category}'>[다음]</a>
+											        </c:if>
+											    </div>
+
+
                                         </div>
                                     </div>
                                 </div>

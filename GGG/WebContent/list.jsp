@@ -108,7 +108,7 @@
 		                                                        <div class="indent-left">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150" /></figure>
 		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
-		                                                            <p>
+		                                                            <p class="cnthei">
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
 																	        <c:out value="${fn:substring(article.content, 0, 35)}">
@@ -130,7 +130,7 @@
 		                                                        <div class="indent3">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150"  /></figure>
 		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
-		                                                            <p>
+		                                                            <p class="cnthei">
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
 																	        <c:out value="${fn:substring(article.content, 0, 35)}">
@@ -139,7 +139,7 @@
 																	        <c:out value="${article.content}">
 																	        </c:out></c:otherwise>
 																	</c:choose>
-																	</p>
+																	</p class="cnthei">
 		                                                            <div class="wrapper">
 		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
 		                                                                <a class="button fright" href="content.do?num=${article.num}">Read More</a>
@@ -152,7 +152,7 @@
 		                                                        <div class="indent-right">
 		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="250" height="150"  /></figure>
 		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
-		                                                            <p>
+		                                                            <p class="cnthei">
 		                                                            <c:choose>
 																	        <c:when test="${fn:length(article.content) gt 36}">
 																	        <c:out value="${fn:substring(article.content, 0, 35)}">

@@ -34,7 +34,12 @@ public class CategoryAction implements CommandAction {
     	
     	String category = request.getParameter("category");
     	if(category==null) category="1";
-    	System.out.println("cAo:"+category);
+    	
+    	int spage = 1;
+    	String page =request.getParameter("page");
+    	if(page!=null)
+    		spage = Integer.parseInt(page);
+  
 //    	if(category==null)
 //    		category="침실가구";
 //    	else if(category.equals("1"))
@@ -53,8 +58,7 @@ public class CategoryAction implements CommandAction {
 //    		category="기타";
 //    	else
 //    		category="침실가구";
-    	
-    	System.out.println("cA:"+category);
+ 
     	
     	try {
     		HttpSession session = request.getSession();
@@ -74,7 +78,7 @@ public class CategoryAction implements CommandAction {
     		
     		if(opt == null){    			
     			query = "select * from board where typ like '%"+category+"%' order by num";
-    			query2 = "SELECT * FROM board WHERE score = (SELECT max(score) FROM board)";
+    			query2 = "SELECT * FROM board WHERE num = (SELECT max(num) FROM board)";
     		}else if(opt.equals("0")){    			
     			query = "select * from board where subject like '%"+condition+"%' order by num";        		
     		}else if(opt.equals("1")){    			
@@ -105,7 +109,7 @@ public class CategoryAction implements CommandAction {
     		}
     		request.setAttribute("articleList",articleList);
     		
-    		board maxScore = null;
+    		int maxNum = 0;
     		if(query2!=null) {
     			rs.close();
         		stmt.close();
@@ -113,21 +117,28 @@ public class CategoryAction implements CommandAction {
     			rs2 = stmt.executeQuery(query2);
     			
     			 while(rs2.next()) {
-        		  maxScore = new board();
-      			  maxScore.setNum(rs2.getInt("num"));
-      			  maxScore.setSubject(rs2.getString("subject"));
-      			  maxScore.setContent(rs2.getString("content"));
-      			  maxScore.setId(rs2.getString("id"));
-      			  maxScore.setBoarddate(rs2.getString("boarddate"));
-      			  maxScore.setScore(rs2.getString("score"));
-      			  maxScore.setImg(rs2.getString("img"));
-      			  maxScore.setSellOpt(rs2.getString("sellOpt"));
-      			  maxScore.setBorrowDay(rs2.getInt("borrowDay"));
-      			  maxScore.setPrice(rs2.getInt("price"));
+        		  
+      			  maxNum = (rs2.getInt("num"));
     			 }
     		  
     		}
-    		request.setAttribute("maxScore",maxScore);
+    		// 전체 페이지 수
+            int maxPage = (int)(articleList.size()/6.0 + 0.84);
+            //시작 페이지 번호
+            int startPage = (int)(spage/5.0 + 0.8) * 5 - 4;
+            //마지막 페이지 번호
+            int endPage = startPage + 4;
+            if(endPage > maxPage)    endPage = maxPage;
+            
+            System.out.println("page"+spage+" "+maxPage+" "+startPage+" "+endPage+" "+articleList.size());
+            
+            // 4개 페이지번호 저장
+            request.setAttribute("spage", spage);
+            request.setAttribute("maxPage", maxPage);
+            request.setAttribute("startPage", startPage);
+            request.setAttribute("endPage", endPage);
+            request.setAttribute("category", category);
+
     	
 
 			 
