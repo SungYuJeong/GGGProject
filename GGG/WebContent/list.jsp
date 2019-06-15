@@ -36,7 +36,7 @@
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
                                 <li><a href="SearchUser.jsp">Services</a></li>
-                                <li><a href="catalogue.jsp">Catalogue</a></li>
+                                <li><a href="catalogue.do">Catalogue</a></li>
                                 <li><a class="active" href="list.do">Pricing</a></li>
                                 <li><a href="Mypage.do">Contacts</a></li>
                             </ul>
@@ -62,11 +62,11 @@
                                 <div class="search-field">
 	                                
                                     <select class="search-op" name="opt" >
-										<option value="0">제목</option>
+										<option value="0" selected>제목</option>
 										<option value="1">내용</option>
 										<option value="2">작성자</option>
 									</select>
-                                    <input type="text" name="condition" />
+                                    <input type="text" maxlength="16" name="condition" />
                                     
                                     <a class="search-button" href="list.do"><span>search</span></a>	
                                 </div>						

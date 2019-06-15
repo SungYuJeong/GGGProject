@@ -82,7 +82,7 @@
 										<option value="1">내용</option>
 										<option value="2">작성자</option>
 									</select>
-                                    <input type="text" name="condition" />
+                                    <input type="text" maxlength="16" name="condition" />
                                     
                                     <a class="search-button" href="list.do"><span>search</span></a>	
                                 </div>						
@@ -124,20 +124,33 @@
                                                 	<h3 class="p0">Purchase</h3>
                                                 </div>
                                                 
+                                                 
+                                                
                                                 <article class="grid_3">
                                                     <div class="cate_button">
 												    	<div class = "cate_word">
 												  		  	<p class="listhead">List</p>
-												  		  	<p><a href="catalogue.do">침실 가구</a></p>
-												  		  	<p><a href="catalogue.do">거실 가구</a></p>
-												  		  	<p><a href="catalogue.do">수납 가구</a></p>
-												  		  	<p><a href="catalogue.do">주방 가구</a></p>
-												  		  	<p><a href="catalogue.do">책상,책장</a></p>
-												  		  	<p><a href="catalogue.do">의자</a></p>
-												  		  	<p><a href="catalogue.do">기타 가구</a></p>
+												  		  	<p><a href="catalogue.do?category=1">침실 가구</a></p>
+												  		  	<p><a href="catalogue.do?category=2">거실 가구</a></p>
+												  		  	<p><a href="catalogue.do?category=3">수납 가구</a></p>
+												  		  	<p><a href="catalogue.do?category=4">주방 가구</a></p>
+												  		  	<p><a href="catalogue.do?category=5">책상,책장</a></p>
+												  		  	<p><a href="catalogue.do?category=6">의자</a></p>
+												  		  	<p><a href="catalogue.do?category=7">기타 가구</a></p>
 												  		 </div>
 													</div>   
                                                 </article>
+                                                
+ 													<c:if test="${fn:length(articleList)==0}">
+                                                  	 	<div class="wrapper p4" style="padding-bottom:200px;">
+	                                                  	 	
+	                                                        <div class="indent-left t2">
+	                                                            <h3 style="margin-left:200px;">현재 가구가 없습니다!</h3>
+	                                                        </div>
+		                                                    
+                                                  	 		
+                                                  	 	</div>
+                                                   	</c:if>                                                
                     
                                                    	<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
                                                    	<c:if test="${status.count==1}">
@@ -257,14 +270,14 @@
         </div>
     </section>
     
-	<!--==============================footer=================================-->
+	 <!--==============================footer=================================-->
     <footer>
         <div class="main">
         	<div class="container_12">
             	<div class="wrapper">
                 	<div class="grid_4">
-                    	<div>Interior Design &copy; 2011 <a class="link color-3" href="#">Privacy Policy</a></div>
-                        <div><a rel="nofollow" target="_blank" href="http://www.templatemonster.com/">Website Template</a> by TemplateMonster.com | <a rel="nofollow" target="_blank" href="http://www.html5xcss3.com/">html5xcss3.com</a></div>
+                    	<div>GGG &copy; 2019 <a class="link color-3" href="#">GGG Project</a></div>
+                        <div><a rel="nofollow" target="_blank" href="https://github.com/jinhoon227/GGGProject">GGG OpenSource</a> using TemplateMonster.com</div>
                         <!-- {%FOOTER_LINK} -->
                     </div>
                     <div class="grid_4">
@@ -272,10 +285,10 @@
                     </div>
                     <div class="grid_4">
                     	<ul class="list-services">
-                        	<li><a href="#"></a></li>
-                            <li><a class="item-2" href="#"></a></li>
-                            <li><a class="item-3" href="#"></a></li>
-                            <li><a class="item-4" href="#"></a></li>
+                        	<li><a href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-2" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-3" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-4" href="https://github.com/jinhoon227/GGGProject"></a></li>
                         </ul>
                     </div>
                 </div>

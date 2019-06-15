@@ -52,7 +52,7 @@
                     	<form id="search-form" method="post" enctype="multipart/form-data">
                             <fieldset>	
                                 <div class="search-field">
-                                    <input name="search" type="text" />
+                                    <input name="search" maxlength="16" type="text" />
                                     <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
                                 </div>						
                             </fieldset>

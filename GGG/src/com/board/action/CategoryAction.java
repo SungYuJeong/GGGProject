@@ -31,7 +31,30 @@ public class CategoryAction implements CommandAction {
     	String opt = request.getParameter("opt");
     	String condition = request.getParameter("condition");
     	if(condition != null) condition = new String(condition.getBytes("8859_1"), "EUC-KR");
-
+    	
+    	String category = request.getParameter("category");
+    	if(category==null) category="1";
+    	System.out.println("cAo:"+category);
+//    	if(category==null)
+//    		category="침실가구";
+//    	else if(category.equals("1"))
+//    		category="침실가구";
+//    	else if(category.equals("2"))
+//    		category="거실가구";
+//    	else if(category.equals("3"))
+//    		category="수납가구";
+//    	else if(category.equals("4"))
+//    		category="주방가구";
+//    	else if(category.equals("5"))
+//    		category="책상,책장";
+//    	else if(category.equals("6"))
+//    		category="의자";
+//    	else if(category.equals("7"))
+//    		category="기타";
+//    	else
+//    		category="침실가구";
+    	
+    	System.out.println("cA:"+category);
     	
     	try {
     		HttpSession session = request.getSession();
@@ -50,7 +73,7 @@ public class CategoryAction implements CommandAction {
     		String query2 = null;
     		
     		if(opt == null){    			
-    			query = "select * from board order by num";
+    			query = "select * from board where typ like '%"+category+"%' order by num";
     			query2 = "SELECT * FROM board WHERE score = (SELECT max(score) FROM board)";
     		}else if(opt.equals("0")){    			
     			query = "select * from board where subject like '%"+condition+"%' order by num";        		

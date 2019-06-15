@@ -29,6 +29,7 @@ public class ListAction implements CommandAction {
     	
     	//�˻��ɼǰ� �˻����� �޾� ������ ����
     	String opt = request.getParameter("opt");
+    	System.out.println(opt+"dfdf");
     	String condition = request.getParameter("condition");
     	if(condition != null) condition = new String(condition.getBytes("8859_1"), "EUC-KR");
 
@@ -119,7 +120,7 @@ public class ListAction implements CommandAction {
     		
     		if(conn != null) try{conn.close();} catch(SQLException ex) {}
     	}
-    	
+    	System.out.println(opt+"dfdf");
     	if(opt==null) {
     		return "list.jsp";
     	}else {

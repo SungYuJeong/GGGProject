@@ -527,13 +527,13 @@ GENERIC BUTTON STYLES
 					<div class="select-box">
 					 	<label for="select-box1" class="label select-box1"><span class="label-desc">가구종류를 선택하세요.</span> </label>
 						<select id="select-box1"  class="select" name = "furniture">
-							<option value ="BedFurniture">침실가구</option>
-							<option value ="LivingFurniture">거실가구</option>
-							<option value ="StorageFurniture">수납가구</option>
-							<option value ="KitchenFurniture">주방가구</option>
-							<option value ="Desk">책상,책장</option>
-							<option value ="Chair">의자</option>
-							<option value ="OtherFurniture">기타</option>
+							<option value ="1">침실가구</option>
+							<option value ="2">거실가구</option>
+							<option value ="3">수납가구</option>
+							<option value ="4">주방가구</option>
+							<option value ="5">책상,책장</option>
+							<option value ="6">의자</option>
+							<option value ="7">기타</option>
 						</select>
 					</div>
 				</div>
