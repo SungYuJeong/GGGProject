@@ -1,6 +1,9 @@
-
+<%@ page language="java" contentType="text/html; charset=euc-kr"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <title></title>
     <meta charset="utf-8">
@@ -49,7 +52,7 @@
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
                                 <li><a href="SearchUser.jsp">Services</a></li>
-                                <li><a class="active" href="catalogue.jsp">Catalogue</a></li>
+                                <li><a class="active" href="catalogue.do">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
                                 <li><a href="Mypage.do">Contacts</a></li>
                             </ul>
@@ -64,21 +67,24 @@
             	<div class="container_12">
                 	<div style="display:inline" class="grid_9">
                     	<h1>
-                            <a  class="logo" href="index.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
-                            
+                            <a class="logo" href="index.jsp">G<strong>G</strong>G</a>
+                            <span>roup</span>
                         </h1>
                     </div>
-                    <div style="position:absolute; top:115px; right:370px;">
-                    <a href="login.jsp" style="text-decoration:none" onMouseOver="this.style.color='black'"  onMouseOut="this.style.color=''" ><p style="font-size:15pt">Login</p></a>
-                    
-                    </div>
+         
                     <div class="grid_3">
                     	<form id="search-form" method="post" enctype="multipart/form-data">
                             <fieldset>	
-                                <div class="search-field">
-                                    <input name="search" type="text" />
-                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
+                               <div class="search-field">
+	                                
+                                    <select class="search-op" name="opt" >
+										<option value="0">제목</option>
+										<option value="1">내용</option>
+										<option value="2">작성자</option>
+									</select>
+                                    <input type="text" name="condition" />
+                                    
+                                    <a class="search-button" href="list.do"><span>search</span></a>	
                                 </div>						
                             </fieldset>
                         </form>
@@ -87,47 +93,138 @@
                 </div>
             </div>
         </div>    	
-    </header><div class="ic">More Website Templates  @ TemplateMonster.com - August22nd 2011!</div>
+        
+        
+    </header>
+  
     
 <!-- content -->
     <section id="content">
+
         <div class="bg-top">
         	<div class="bg-top-2">
                 <div class="bg">
                     <div class="bg-top-shadow">
-                        <div class="main">
-                            <div class="gallery p3">
-                            	<div class="wrapper indent-bot">
-                                    <div id="gallery" class="content">
-                                       <div class="wrapper">
-                                           <div class="slideshow-container">
-                                                <div id="slideshow" class="slideshow"></div>
+                 
+                      <div class="main">
+                           
+                         <div class="box">
+							                       
+							                         
+                                <div class="padding">
+                                
+                            
+                                
+                                
+                                    <div class="container_12">
+                                        <div class="wrapper">
+                                            <div class="grid_12">
+                                            	
+                                            	<div class="indent-left p2">
+                                                	<h3 class="p0">Purchase</h3>
+                                                </div>
+                                                
+                                                <article class="grid_3">
+                                                    <div class="cate_button">
+												    	<div class = "cate_word">
+												  		  	<p class="listhead">List</p>
+												  		  	<p><a href="catalogue.do">침실 가구</a></p>
+												  		  	<p><a href="catalogue.do">거실 가구</a></p>
+												  		  	<p><a href="catalogue.do">수납 가구</a></p>
+												  		  	<p><a href="catalogue.do">주방 가구</a></p>
+												  		  	<p><a href="catalogue.do">책상,책장</a></p>
+												  		  	<p><a href="catalogue.do">의자</a></p>
+												  		  	<p><a href="catalogue.do">기타 가구</a></p>
+												  		 </div>
+													</div>   
+                                                </article>
+                    
+                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" end="5">
+                                                   	<c:if test="${status.count==1}">
+                                                  	 	<div class="wrapper p4 padd paddt">
+                                                   	</c:if>
+                                                   	<c:if test="${status.count%3==1 && status.count!=1}">
+                                                  	 	</div>
+                                                   		<div class="wrapper padd">
+                                                   	</c:if>
+                                                   	<c:choose>        
+														<c:when test="${status.count%3==1}">
+															<article class="grid_3 alpha ">
+		                                                        <div class="indent-left">
+		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="170" height="150" /></figure>
+		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
+		                                                            <p>
+		                                                            <c:choose>
+																	        <c:when test="${fn:length(article.content) gt 36}">
+																	        <c:out value="${fn:substring(article.content, 0, 35)}">
+																	        </c:out><span>...</span></c:when>
+																	        <c:otherwise>
+																	        <c:out value="${article.content}">
+																	        </c:out></c:otherwise>
+																	</c:choose>
+																	</p>
+		                                                            <div class="wrapper">
+		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">Read</a>
+		                                                            </div>
+		                                                        </div>
+		                                                    </article>
+														</c:when>
+														<c:when test="${status.count%3==2}">
+															<article class="grid_3">
+		                                                        <div class="indent3">
+		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="170" height="150"  /></figure>
+		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
+		                                                            <p>
+		                                                            <c:choose>
+																	        <c:when test="${fn:length(article.content) gt 36}">
+																	        <c:out value="${fn:substring(article.content, 0, 35)}">
+																	        </c:out><span>...</span></c:when>
+																	        <c:otherwise>
+																	        <c:out value="${article.content}">
+																	        </c:out></c:otherwise>
+																	</c:choose>
+																	</p>
+		                                                            <div class="wrapper">
+		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">Read</a>
+		                                                            </div>
+		                                                        </div>
+		                                                    </article>
+														</c:when>
+														<c:when test="${status.count%3==0}">
+															<article class="grid_3 omega">
+		                                                        <div class="indent-right">
+		                                                            <figure class="frame2 p2"><img src="${article.img}" alt="" width="170" height="150"  /></figure>
+		                                                            <p class="color-4 prev-indent-bot font-sbj">${article.subject}</p>
+		                                                            <p>
+		                                                            <c:choose>
+																	        <c:when test="${fn:length(article.content) gt 36}">
+																	        <c:out value="${fn:substring(article.content, 0, 35)}">
+																	        </c:out><span>...</span></c:when>
+																	        <c:otherwise>
+																	        <c:out value="${article.content}">
+																	        </c:out></c:otherwise>
+																	</c:choose>
+																	</p>
+		                                                            <div class="wrapper">
+		                                                            	<span class="price fleft">&#8361;&nbsp;${article.price}</span>
+		                                                                <a class="button fright" href="content.do?num=${article.num}">Read</a>
+		                                                            </div>
+		                                                        </div>
+		                                                    </article>
+														</c:when>
+													</c:choose>
+													</c:forEach>
+                                                	</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div id="thumbs" class="navigation">
-                                        <ul class="thumbs noscript">
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img1.jpg" title=""> <img src="images/thumb-1.jpg" alt="" /><span></span> </a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img2.jpg" title=""> <img src="images/thumb-2.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img3.jpg" title=""> <img src="images/thumb-3.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img4.jpg" title=""> <img src="images/thumb-4.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img5.jpg" title=""> <img src="images/thumb-5.jpg" alt="" /> <span></span></a>
-                                            </li> 
-                                            <li>
-                                                <a class="thumb" href="images/gallery-img6.jpg" title=""> <img src="images/thumb-6.jpg" alt="" /> <span></span></a>
-                                            </li>           
-                                        </ul>
-                                    </div>
                                 </div>
+                           
+                          <div class="bg">
+                            <div class="gallery p3">
+                            	
                                 <div class="inner-2">
                                     <div class="wrapper">
                                         <span class="title t2 img-indent3">2011</span>
@@ -150,47 +247,13 @@
                                     </ul>
                                 </div>
                             </div>
+                           </div>
                         </div>
+                      
+                        
                     </div>
                 </div>
             </div>	
-        </div>
-        <div class="bg-bot">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="wrapper">
-                    	<article class="grid_4">
-                        	<div class="indent-right2">
-                                <h3 class="prev-indent-bot">Publications</h3>
-                                <p class="color-4 prev-indent-bot">At vero eos et accusamus et iusto odio dignissi tum deleniti atque corrupti quos</p>
-                                <p>Dolores et quas molestias excepturi sint occae cati cupiditate non provident, similique sunt in culpa qui officia deserunt.</p>
-                                <a class="button" href="#">View More</a>
-                            </div>
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="p2">Art of Placement</h3>
-                            <div class="wrapper">
-                            	<figure class="img-indent frame2"><img src="images/page3-img5.jpg" alt="" /></figure>
-                                <div class="extra-wrap">
-                                	<p class="img-indent-bot">At vero eos eaccusa mus etusto odio tium voluptatum deleniti atque corrupti quos dolores et quas.</p>
-                                    <a class="button" href="#">View More</a>
-                                </div>
-                            </div>
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot2">External Links</h3>
-                            <ul class="list-2">
-                            	<li><a href="#">Totam rem aperiam eaque ipsa quae abillo</a></li>
-                                <li><a href="#">Inventore veritatis quasi architecto beatae vitae</a></li>
-                                <li><a href="#">Nemo enim ipsam voluptatem quia</a></li>
-                                <li><a href="#">Voluptas sit aspernatur aut odit aut fugit</a></li>
-                                <li><a href="#">Sed quia consequuntur magni dolores eos</a></li>
-                                <li class="last-item"><a href="#">Ratione voluptatem sequi nesciunt</a></li>
-                            </ul>
-                        </article>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     
@@ -219,58 +282,6 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript">
-			$(window).load(function() {
-			// We only want these styles applied when javascript is enabled
-			$('div.navigation').css({'width' : '320px', 'float' : 'right'});
-			$('div.content').css('display', 'block');
-	
-			// Initially set opacity on thumbs and add
-			// additional styling for hover effect on thumbs
-			var onMouseOutOpacity = 0.5;
-			$('#thumbs ul.thumbs li span').opacityrollover({
-				mouseOutOpacity:   onMouseOutOpacity,
-				mouseOverOpacity:  0.0,
-				fadeSpeed:         'fast',
-				exemptionSelector: '.selected'
-			});
-			
-			// Initialize Advanced Galleriffic Gallery
-			var gallery = $('#thumbs').galleriffic({
-				delay:                     7000,
-				numThumbs:                 12,
-				preloadAhead:              6,
-				enableTopPager:            false,
-				enableBottomPager:         false,
-				imageContainerSel:         '#slideshow',
-				controlsContainerSel:      '',
-				captionContainerSel:       '',
-				loadingContainerSel:       '',
-				renderSSControls:          true,
-				renderNavControls:         true,
-				playLinkText:              'Play Slideshow',
-				pauseLinkText:             'Pause Slideshow',
-				prevLinkText:              'Prev',
-				nextLinkText:              'Next',
-				nextPageLinkText:          'Next',
-				prevPageLinkText:          'Prev',
-				enableHistory:             true,
-				autoStart:                 7000,
-				syncTransitions:           true,
-				defaultTransitionDuration: 900,
-				onSlideChange:             function(prevIndex, nextIndex) {
-					// 'this' refers to the gallery, which is an extension of $('#thumbs')
-					this.find('ul.thumbs li span')
-						.css({opacity:0.5})
-				},
-				onPageTransitionOut:       function(callback) {
-					this.find('ul.thumbs li span').css({display:'block'});
-				},
-				onPageTransitionIn:        function() {
-					this.find('ul.thumbs li span').css({display:'none'});
-				}
-			});
-		});
-	</script>
+  	<script src="./js/allui.js"></script> 
 </body>
 </html>

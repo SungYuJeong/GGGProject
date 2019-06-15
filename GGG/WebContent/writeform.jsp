@@ -565,7 +565,7 @@ GENERIC BUTTON STYLES
 				<br style="clear:both;"/>
 				<div>
 					<input type=submit class="btn btn-orange" value="등록"
-						Onclick="javascript:writeCheck();"> <input type=button
+						Onclick="javascript:wrisfteCheck();"> <input type=button
 						class="btn btn-concrete" value="취소"
 						OnClick="window.location='list.do'">
 				</div>
