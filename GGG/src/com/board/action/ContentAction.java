@@ -27,6 +27,7 @@ public class ContentAction implements CommandAction {
     	Class.forName("com.mysql.cj.jdbc.Driver");
     	//��ȣ�� �Է¹޾ƿ� ������ ����
     	int num = Integer.parseInt(request.getParameter("num"));
+    	String condition = request.getParameter("content");
     	Connection conn = null;
     	Statement stmt = null;    	
     	ResultSet rs = null;   

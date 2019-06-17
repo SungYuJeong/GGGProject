@@ -262,7 +262,7 @@ button {
          var row = table.insertRow(table.rows.length); //하단에추가
          var cell1 = row.insertCell(0);
          var cell2 = row.insertCell(1);
-         cell2.innerHTML =  "${id}";
+         cell1.innerHTML =  "${id}";
          cell2.innerHTML = document.getElementById("comment").value;
       }
 
