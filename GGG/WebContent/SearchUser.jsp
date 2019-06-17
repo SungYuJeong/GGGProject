@@ -32,6 +32,11 @@
 			text-align: center;
 			font-size: 15px;
 			font-weight: bold;
+			 font-family: Montserrat, sans-serif;
+		}
+		.window {
+		font-family: Montserrat, sans-serif;
+		font-size: 2em;
 		}
 		#thumbs {
 	
@@ -49,7 +54,7 @@
                     	<nav>
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
-                                <li><a class="active" href="SearchUser.jsp">Search User</a></li>
+                                <li><a class="active" href="services.jsp">Search User</a></li>
                                 <li><a href="catalogue.jsp">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
                                 <li><a href="Mypage.do">Contacts</a></li>
@@ -108,7 +113,7 @@
                                     	  var mark3 = new google.maps.LatLng(36.632832, 127.4557401);
                                     	  var mark4 = new google.maps.LatLng(36.632000, 127.4557000);
                                     	  var mark5 = new google.maps.LatLng(36.6328694, 127.4404191);
-                                    	  
+                                    	  //var A = ${article.subject};
                                     	  var mapCanvas = document.getElementById("gallery");
                                     	  var myCenter = new google.maps.LatLng(36.6322724, 127.4548716);
                                     	  var mapOptions = {
@@ -147,7 +152,7 @@
                                              	  
                                              	  google.maps.event.addListener(marker1,'click',function() {
                                    					var infowindow = new google.maps.InfoWindow({
-                                   					content:'<div>'+'A'+'<br/><img src="images/thumb-1.jpg" width="100px" height="100px">'
+                                   					content:'<div class="window">'+'<b>White Chare</b><br/>User : ykkim6872'+'<br/><img src="images/thumb-1.jpg" width="300px" height="200px">'
                                    					});
                                    				  infowindow.open(map,marker1);
                                    					});
@@ -160,7 +165,7 @@
                                                	  
                                                	 google.maps.event.addListener(marker2,'click',function() {
                                     					var infowindow = new google.maps.InfoWindow({
-                                    					content:'<div>'+'B'+'<br/><img src="images/thumb-2.jpg" width="100px" height="100px">'
+                                    					content:'<div class="window">'+'<b>WhiteDesk</b><br/>User : ykkim6872'+'<br/><img src="images/thumb-2.jpg" width="300px" height="200px">'
                                     					});
                                     				  infowindow.open(map,marker2);
                                     					});
@@ -173,7 +178,7 @@
                                              	  
                                              		 google.maps.event.addListener(marker3,'click',function() {
                                          					var infowindow = new google.maps.InfoWindow({
-                                         					content:'<div>'+'C'+'<br/><img src="images/thumb-3.jpg" width="100px" height="100px">'
+                                         					content:'<div class="window">'+'<b>Stend Light</b><br/>User : ykkim6872'+'<br/><img src="images/thumb-3.jpg" width="300px" height="200px">'
                                          					});
                                          				  infowindow.open(map,marker3);
                                          					});
@@ -186,7 +191,7 @@
                                                	  
                                               	 google.maps.event.addListener(marker4,'click',function() {
                                      					var infowindow = new google.maps.InfoWindow({
-                                     					content:'<div>'+'D'+'<br/><img src="images/thumb-4.jpg" width="100px" height="100px">'
+                                     					content:'<div class="window">'+'<b>Wood bed</b><br/>User : ykkim6872'+'<br/><img src="images/thumb-4.jpg" width="300px" height="200px">'
                                      					});
                                      				  infowindow.open(map,marker4);
                                      					});
@@ -341,29 +346,5 @@
 			});
 		});
 	</script>
-	 <footer>
-        <div class="main">
-        	<div class="container_12">
-            	<div class="wrapper">
-                	<div class="grid_4">
-                    	<div>GGG &copy; 2019 <a class="link color-3" href="#">GGG Project</a></div>
-                        <div><a rel="nofollow" target="_blank" href="https://github.com/jinhoon227/GGGProject">GGG OpenSource</a> using TemplateMonster.com</div>
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
-                    <div class="grid_4">
-                    	<span class="phone-numb"><span>Contect Our&nbsp; </span>GitPage</span>
-                    </div>
-                    <div class="grid_4">
-                    	<ul class="list-services">
-                        	<li><a href="https://github.com/jinhoon227/GGGProject"></a></li>
-                            <li><a class="item-2" href="https://github.com/jinhoon227/GGGProject"></a></li>
-                            <li><a class="item-3" href="https://github.com/jinhoon227/GGGProject"></a></li>
-                            <li><a class="item-4" href="https://github.com/jinhoon227/GGGProject"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
