@@ -36,8 +36,8 @@
                     	<nav>
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
-                                <li><a href="SearchUser.jsp">Services</a></li>
-                                <li><a href="catalogue.jsp">Catalogue</a></li>
+                                <li><a href="SearchUser.jsp">Search User</a></li>
+                                <li><a href="catalogue.do">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
                                 <li><a  class="active" href="Mypage.do">My page</a></li>
                             </ul>

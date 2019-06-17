@@ -138,6 +138,14 @@ public class CategoryAction implements CommandAction {
             request.setAttribute("startPage", startPage);
             request.setAttribute("endPage", endPage);
             request.setAttribute("category", category);
+            int pbegin = (spage-1)*6;
+            int pend = (spage-1)*6+5;
+            if(pbegin <0)
+            	pbegin =0;
+            if(pend < 0)
+            	pend=0;
+            request.setAttribute("pbegin", pbegin);
+            request.setAttribute("pend", pend);
 
     	
 

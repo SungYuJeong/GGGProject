@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=euc-kr"
+    pageEncoding="UTF-8"%>
 <head>
     <title></title>
     <meta charset="utf-8">
@@ -54,10 +55,10 @@
                     	<nav>
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
-                                <li><a class="active" href="services.jsp">Search User</a></li>
-                                <li><a href="catalogue.jsp">Catalogue</a></li>
+                                <li><a class="active" href="SearchUser.jsp">Search User</a></li>
+                                <li><a href="catalogue.do">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
-                                <li><a href="Mypage.do">Contacts</a></li>
+                                <li><a href="Mypage.do">My page</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -78,8 +79,15 @@
                     	<form id="search-form" method="post" enctype="multipart/form-data">
                             <fieldset>	
                                 <div class="search-field">
-                                    <input name="search" type="text" />
-                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
+	                                
+                                    <select class="search-op" name="opt" >
+										<option value="0" selected>제목</option>
+										<option value="1">내용</option>
+										<option value="2">작성자</option>
+									</select>
+                                    <input type="text" maxlength="16" name="condition" />
+                                    
+                                    <a class="search-button" href="list.do"><span>search</span></a>	
                                 </div>						
                             </fieldset>
                         </form>
@@ -292,6 +300,31 @@
     </section>
     
 	<!--==============================footer=================================-->
+    <footer>
+        <div class="main">
+        	<div class="container_12">
+            	<div class="wrapper">
+                	<div class="grid_4">
+                    	<div>GGG &copy; 2019 <a class="link color-3" href="#">GGG Project</a></div>
+                        <div><a rel="nofollow" target="_blank" href="https://github.com/jinhoon227/GGGProject">GGG OpenSource</a> using TemplateMonster.com</div>
+                        <!-- {%FOOTER_LINK} -->
+                    </div>
+                    <div class="grid_4">
+                    	<span class="phone-numb"><span>+1(800)</span> 123-1234</span>
+                    </div>
+                    <div class="grid_4">
+                    	<ul class="list-services">
+                        	<li><a href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-2" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-3" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                            <li><a class="item-4" href="https://github.com/jinhoon227/GGGProject"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/allui.js"></script> 
     
     <script type="text/javascript">
 			$(window).load(function() {

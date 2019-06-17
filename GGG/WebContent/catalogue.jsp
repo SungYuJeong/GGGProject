@@ -51,10 +51,10 @@
                     	<nav>
                             <ul class="menu">
                                 <li><a href="index.jsp">About Us</a></li>
-                                <li><a href="SearchUser.jsp">Services</a></li>
+                                <li><a href="SearchUser.jsp">Search User</a></li>
                                 <li><a class="active" href="catalogue.do">Catalogue</a></li>
                                 <li><a href="list.do">Pricing</a></li>
-                                <li><a href="Mypage.do">Contacts</a></li>
+                                <li><a href="Mypage.do">My page</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -150,9 +150,10 @@
 		                                                    
                                                   	 		
                                                   	 	</div>
-                                                   	</c:if>                                                
+                                                   	</c:if> 
+                                                           
                     
-                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" begin="${(spage-1)*6}" end="${(spage-1)*6+5}">
+                                                   	<c:forEach items="${articleList}" var="article" varStatus="status" begin="${pbegin}" end="${pend}">
                                                    	<c:if test="${status.count==1}">
                                                   	 	<div class="wrapper p4 padd paddt">
                                                    	</c:if>

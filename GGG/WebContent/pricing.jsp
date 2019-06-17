@@ -87,7 +87,7 @@
                                                             <p>Doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.</p>
                                                             <div class="wrapper">
                                                             	<span class="price fleft">$45.99</span>
-                                                                <a class="button fright" href="#">Read More</a>
+                                                                <a class="btton fright" href="#">Read More</a>
                                                             </div>
                                                         </div>
                                                     </article>
